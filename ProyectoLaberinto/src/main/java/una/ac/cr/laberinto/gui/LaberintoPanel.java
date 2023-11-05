@@ -7,6 +7,8 @@ import java.awt.*;
 
 public class LaberintoPanel extends JPanel {
 	private Laberinto laberinto;
+	private int cellWidth;
+	private int cellHeight;
 
 	public LaberintoPanel(Laberinto laberinto) {
 		this.laberinto = laberinto;
@@ -16,8 +18,8 @@ public class LaberintoPanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
-		int cellWidth = getWidth() / laberinto.getColumnas();
-		int cellHeight = getHeight() / laberinto.getFilas();
+		cellWidth = getWidth() / laberinto.getColumnas();
+		cellHeight = getHeight() / laberinto.getFilas();
 
 		for (int i = 0; i < laberinto.getFilas(); i++) {
 			for (int j = 0; j < laberinto.getColumnas(); j++) {
