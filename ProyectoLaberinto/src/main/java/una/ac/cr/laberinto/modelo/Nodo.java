@@ -32,9 +32,34 @@ public class Nodo {
 		visitado = true;
 	}
 
+	public void marcarNoVisitado() {
+		visitado = false;
+	}
+
 	@Override
 	public String toString() {
-		return "(" + fila + ", " + columna + ")";
+		StringBuilder sb = new StringBuilder();
+		sb.append("Nodo: ");
+		sb.append(fila);
+		sb.append(",");
+		sb.append(columna);
+		sb.append(" Visitado: ");
+		sb.append(visitado);
+		sb.append(" Direcciones posibles: ");
+		if (arriba != null) {
+			sb.append("Arriba -- ");
+		}
+		if (derecha != null) {
+			sb.append("Derecha -- ");
+		}
+		if (abajo != null) {
+			sb.append("Abajo -- ");
+		}
+		if (izquierda != null) {
+			sb.append("Izquierda -- ");
+		}
+		sb.append("\n");
+		return sb.toString();
 	}
 
 	public void setDerecha(Nodo nodo) {
@@ -69,5 +94,8 @@ public class Nodo {
 		return izquierda;
 	}
 
+	public boolean isVacio() {
+		return arriba == null && derecha == null && abajo == null && izquierda == null;
+	}
 }
 
