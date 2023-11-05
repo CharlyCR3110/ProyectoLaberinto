@@ -83,6 +83,11 @@ public class LaberintoPanel extends JPanel {
 					g.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
 				}
 
+				if (nodo.esCaminoIncorrecto()) {
+					g.setColor(Color.GRAY); // Color del jugador
+					g.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
+				}
+
 				if (model.getJugador().equals(laberinto.getNodoSalida())) {
 					g.setColor(Color.RED);
 					g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
