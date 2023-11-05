@@ -53,8 +53,12 @@ public class LaberintoPanel extends JPanel {
 				g.setColor(Color.WHITE);
 				g.fillRect(x, y, cellWidth, cellHeight);
 
+				Graphics2D g2d = (Graphics2D) g;
+
+				// Dibujar paredes con un grosor mayor
+				g2d.setStroke(new BasicStroke(4)); // Grosor de la línea = 4 pixel
 				// Dibujar paredes
-				g.setColor(Color.BLACK);
+				g.setColor(new Color(198, 89, 17));
 				if (nodo.getArriba() == null) {
 					g.drawLine(x, y, x + cellWidth, y);
 				}
@@ -68,30 +72,30 @@ public class LaberintoPanel extends JPanel {
 					g.drawLine(x, y + cellHeight, x + cellWidth, y + cellHeight);
 				}
 
-				// Verificar si el nodo es la entrada o la salida y pintarlo de un color diferente
-				if (i == laberinto.getNodoEntrada().getFila() && j == laberinto.getNodoEntrada().getColumna()) {
-					g.setColor(Color.GREEN); // Color de la entrada
-					g.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
-				} else if (i == laberinto.getNodoSalida().getFila() && j == laberinto.getNodoSalida().getColumna()) {
-					g.setColor(Color.RED); // Color de la salida
-					g.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
-				}
 
 				// Verificar si el nodo es la posición del jugador y pintarlo de un color diferente
 				if (nodo.esVisitado()) {
-					g.setColor(Color.BLUE); // Color del jugador
+					g.setColor(new Color(28, 83, 119)); // Color del jugador
 					g.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
 				}
 
 				if (nodo.esCaminoIncorrecto()) {
-					g.setColor(Color.GRAY); // Color del jugador
+					g.setColor(new Color(106, 106, 106)); // Color del jugador
 					g.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
 				}
 
 				if (model.getJugador().equals(laberinto.getNodoSalida())) {
-					g.setColor(Color.RED);
+					g.setColor(new Color(184, 15, 10));
 					g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
 					g.drawString("¡Ganaste!", 100, 100);
+				}
+				// Verificar si el nodo es la entrada o la salida y pintarlo de un color diferente
+				if (i == laberinto.getNodoEntrada().getFila() && j == laberinto.getNodoEntrada().getColumna()) {
+					g.setColor(new Color(89, 198, 17)); // Color de la entrada
+					g.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
+				} else if (i == laberinto.getNodoSalida().getFila() && j == laberinto.getNodoSalida().getColumna()) {
+					g.setColor(new Color(184, 15, 10)); // Color de la salida
+					g.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
 				}
 			}
 		}
