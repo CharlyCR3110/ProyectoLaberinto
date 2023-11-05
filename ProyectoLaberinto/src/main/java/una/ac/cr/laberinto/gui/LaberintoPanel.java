@@ -47,10 +47,10 @@ public class LaberintoPanel extends JPanel {
 				// Verificar si el nodo es la entrada o la salida y pintarlo de un color diferente
 				if (i == laberinto.getNodoEntrada().getFila() && j == laberinto.getNodoEntrada().getColumna()) {
 					g.setColor(Color.GREEN); // Color de la entrada
-					g.fillRect(x, y, cellWidth, cellHeight);
+					g.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
 				} else if (i == laberinto.getNodoSalida().getFila() && j == laberinto.getNodoSalida().getColumna()) {
 					g.setColor(Color.RED); // Color de la salida
-					g.fillRect(x, y, cellWidth, cellHeight);
+					g.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
 				}
 
 			}
