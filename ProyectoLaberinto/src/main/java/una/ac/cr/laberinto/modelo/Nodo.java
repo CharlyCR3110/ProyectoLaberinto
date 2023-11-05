@@ -4,6 +4,7 @@ public class Nodo {
 	private int fila;
 	private int columna;
 	private boolean visitado;
+	private boolean caminoIncorrecto;
 
 	private Nodo arriba;
 	private Nodo derecha;
@@ -27,6 +28,9 @@ public class Nodo {
 	public boolean esVisitado() {
 		return visitado;
 	}
+	public boolean esCaminoIncorrecto() {
+		return caminoIncorrecto;
+	}
 
 	public void marcarVisitado() {
 		visitado = true;
@@ -34,6 +38,10 @@ public class Nodo {
 
 	public void marcarNoVisitado() {
 		visitado = false;
+	}
+
+	public void marcarCaminoIncorrecto() {
+		caminoIncorrecto = true;
 	}
 
 	@Override
