@@ -92,9 +92,18 @@ public class AlgoritmoGeneracion {
 	}
 	public Laberinto getLaberinto() {
 		Laberinto laberinto = new Laberinto(filas, columnas);
+		reiniciarVisitas();	// se reinician las visitas para que el algoritmo de resolución funcione correctamente
 		laberinto.setNodos(nodos);
 		laberinto.setNodoEntrada(nodoAleatorio());
 		laberinto.setNodoSalida(nodoAleatorio());
 		return laberinto;
+	}
+
+	public void reiniciarVisitas() {
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < columnas ; j++) {
+				nodos[i][j].marcarNoVisitado();
+			}
+		}
 	}
 }
