@@ -13,6 +13,8 @@ public class Main {
 		AlgoritmoGeneracion algoritmoGeneracion = new AlgoritmoGeneracion(filas, columnas);
 		Laberinto laberinto = algoritmoGeneracion.getLaberinto();
 
+		laberinto.mostrarNodos();
+
 		SwingUtilities.invokeLater(() -> {
 			new LaberintoFrame(laberinto);
 		});
