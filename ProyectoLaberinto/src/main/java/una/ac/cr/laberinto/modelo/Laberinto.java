@@ -54,4 +54,13 @@ public class Laberinto {
 		this.nodoSalida = nodoSalida;
 	}
 
+	public void mostrarNodos() {
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < columnas ; j++) {
+				System.out.print(nodos[i][j].toString());
+			}
+			System.out.println();
+		}
+	}
+
 }
