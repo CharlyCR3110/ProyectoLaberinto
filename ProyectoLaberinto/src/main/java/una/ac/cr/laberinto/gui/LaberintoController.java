@@ -22,9 +22,6 @@ public class LaberintoController {
 	}
 
 	private void repaint() {
-		// dibujar de color azul el nodo actual
-		model.getJugador().marcarVisitado();
-		// Vuelve a dibujar el panel
 		model.getPanel().repaint();
 	}
 }
