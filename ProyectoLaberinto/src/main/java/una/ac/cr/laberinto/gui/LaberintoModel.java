@@ -23,60 +23,45 @@ public class LaberintoModel {
 		return jugador;
 	}
 
-	public void moverJugador(KeyEvent keyEvent) {
-		if (keyEvent.getKeyCode() == KeyEvent.VK_UP) {
+	public LaberintoPanel getPanel() {
+		return this.panel;
+	}
+
+	public Laberinto getLaberinto() {
+		return laberinto;
+	}
+
+	public AlgoritmoSolucion getAlgoritmoSolucion() {
+		return algoritmoSolucion;
+	}
+
+	public void moverJugador(String direccion) {
+		if (direccion == "ARRIBA") {
 			if (jugador.getArriba() != null) {
 				jugador = jugador.getArriba();
 				jugador.marcarVisitado();
-			} else {
-				System.out.println("No se puede mover hacia arriba");
-				return;
 			}
-		} else if (keyEvent.getKeyCode() == KeyEvent.VK_DOWN) {
-			if (jugador.getAbajo() != null) {
-				jugador = jugador.getAbajo();
-				jugador.marcarVisitado();
-			} else {
-				System.out.println("No se puede mover hacia abajo");
-				return;
-			}
-		} else if (keyEvent.getKeyCode() == KeyEvent.VK_LEFT) {
-			if (jugador.getIzquierda() != null) {
-				jugador = jugador.getIzquierda();
-				jugador.marcarVisitado();
-			} else {
-				System.out.println("No se puede mover hacia la izquierda");
-				return;
-			}
-		} else if (keyEvent.getKeyCode() == KeyEvent.VK_RIGHT) {
+		} else if (direccion == "DERECHA") {
 			if (jugador.getDerecha() != null) {
 				jugador = jugador.getDerecha();
 				jugador.marcarVisitado();
-			} else {
-				System.out.println("No se puede mover hacia la derecha");
-				return;
 			}
-		} else if(keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
-			System.out.println("Resolviendo laberinto");
-			if (jugador != laberinto.getNodoEntrada()) {
-				System.out.println("No se puede resolver el laberinto si el jugador no está en la entrada");
-				return;
+		} else if (direccion == "ABAJO") {
+			if (jugador.getAbajo() != null) {
+				jugador = jugador.getAbajo();
+				jugador.marcarVisitado();
 			}
-			algoritmoSolucion.resolverLaberinto();
-			jugador = laberinto.getNodoSalida();
-			return;
-		} else if(keyEvent.getKeyCode() == 82) {	// Reinicio del laberinto
-			System.out.println("Reiniciando laberinto");
-			laberinto.reiniciarLaberinto();
-			jugador = laberinto.getNodoEntrada();
-			return;
-		}else {
-			System.out.println("Tecla no válida");
-			return;
+		} else if (direccion == "IZQUIERDA") {
+			if (jugador.getIzquierda() != null) {
+				jugador = jugador.getIzquierda();
+				jugador.marcarVisitado();
+			}
+		} else {
+			System.out.println("Dirección no válida");
 		}
 	}
 
-	public LaberintoPanel getPanel() {
-		return this.panel;
+	public void setJugador(Nodo nodo) {
+		this.jugador = nodo;
 	}
 }
