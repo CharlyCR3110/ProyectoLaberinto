@@ -61,7 +61,13 @@ public class LaberintoModel {
 			algoritmoSolucion.resolverLaberinto();
 			jugador = laberinto.getNodoSalida();
 			return;
-		} else {
+		} else if(keyEvent.getKeyCode() == 82) {	// Reinicio del laberinto
+			System.out.println("Reiniciando laberinto");
+			laberinto.reiniciarLaberinto();
+			jugador = laberinto.getNodoEntrada();
+			return;
+
+		}else {
 			System.out.println("Tecla no válida");
 			return;
 		}
