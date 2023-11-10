@@ -63,4 +63,12 @@ public class Laberinto {
 		}
 	}
 
+	public void reiniciarLaberinto() {
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < columnas ; j++) {
+				nodos[i][j].setDefault();
+			}
+			System.out.println();
+		}
+	}
 }
