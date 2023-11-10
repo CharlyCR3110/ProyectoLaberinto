@@ -58,6 +58,10 @@ public class LaberintoModel {
 			}
 		} else if(keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
 			System.out.println("Resolviendo laberinto");
+			if (jugador != laberinto.getNodoEntrada()) {
+				System.out.println("No se puede resolver el laberinto si el jugador no está en la entrada");
+				return;
+			}
 			algoritmoSolucion.resolverLaberinto();
 			jugador = laberinto.getNodoSalida();
 			return;
@@ -66,7 +70,6 @@ public class LaberintoModel {
 			laberinto.reiniciarLaberinto();
 			jugador = laberinto.getNodoEntrada();
 			return;
-
 		}else {
 			System.out.println("Tecla no válida");
 			return;
