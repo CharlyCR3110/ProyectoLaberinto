@@ -105,5 +105,10 @@ public class Nodo {
 	public boolean isVacio() {
 		return arriba == null && derecha == null && abajo == null && izquierda == null;
 	}
+
+	public void setDefault() {
+		this.visitado = false;
+		this.caminoIncorrecto = false;
+	}
 }
 
