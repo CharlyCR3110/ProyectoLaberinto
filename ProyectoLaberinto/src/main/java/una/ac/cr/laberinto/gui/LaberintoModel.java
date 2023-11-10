@@ -6,6 +6,7 @@ import una.ac.cr.laberinto.modelo.Nodo;
 
 import java.awt.event.KeyEvent;
 import java.util.List;
+import java.util.Objects;
 
 public class LaberintoModel {
 	private Laberinto laberinto;
@@ -36,22 +37,22 @@ public class LaberintoModel {
 	}
 
 	public void moverJugador(String direccion) {
-		if (direccion == "ARRIBA") {
+		if (Objects.equals(direccion, "ARRIBA")) {	// objeto.equals("string") es más seguro que ==, lo mismo pero el IDE mandaba warning
 			if (jugador.getArriba() != null) {
 				jugador = jugador.getArriba();
 				jugador.marcarVisitado();
 			}
-		} else if (direccion == "DERECHA") {
+		} else if (Objects.equals(direccion, "DERECHA")) {
 			if (jugador.getDerecha() != null) {
 				jugador = jugador.getDerecha();
 				jugador.marcarVisitado();
 			}
-		} else if (direccion == "ABAJO") {
+		} else if (Objects.equals(direccion, "ABAJO")) {
 			if (jugador.getAbajo() != null) {
 				jugador = jugador.getAbajo();
 				jugador.marcarVisitado();
 			}
-		} else if (direccion == "IZQUIERDA") {
+		} else if (Objects.equals(direccion, "IZQUIERDA")) {
 			if (jugador.getIzquierda() != null) {
 				jugador = jugador.getIzquierda();
 				jugador.marcarVisitado();
