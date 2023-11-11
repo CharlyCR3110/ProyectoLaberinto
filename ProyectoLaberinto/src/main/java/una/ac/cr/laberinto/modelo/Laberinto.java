@@ -9,6 +9,12 @@ public class Laberinto {
 	private Nodo[][] nodos;
 	private Nodo nodoEntrada;
 	private Nodo nodoSalida;
+
+	public static String[] DESCRIPCION_MODO = {"Guías", "Bloque", "Línea"};
+	// int[] MODOS = {MODO_GUIA, MODO_BLOQUE, MODO_LINEA};
+	int MODO_BLOQUE = 0;
+	int MODO_GUIA = -1;
+	int MODO_LINEA = 1;
 	public Laberinto(int filas, int columnas) {
 		this.filas = filas;
 		this.columnas = columnas;
