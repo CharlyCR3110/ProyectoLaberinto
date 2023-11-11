@@ -46,7 +46,7 @@ public class JAXBUtil {
 			// Leer el Laberinto desde el archivo XML
 			return (Laberinto) unmarshaller.unmarshal(new File(nombreArchivo));
 		} catch (JAXBException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			return null;
 		}
 	}
