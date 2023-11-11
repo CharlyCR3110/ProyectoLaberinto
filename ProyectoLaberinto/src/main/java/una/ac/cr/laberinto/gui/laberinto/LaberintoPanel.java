@@ -12,11 +12,17 @@ public class LaberintoPanel extends JPanel {
 	private int cellWidth;
 	private int cellHeight;
 	private double escala = 1.0;	// default
+	
 	public LaberintoPanel(Laberinto laberinto) {
 		this.laberinto = laberinto;
 		this.model = new LaberintoModel(laberinto, this);
-		this.controller = new LaberintoController(this.model);
+		this.controller = new LaberintoController(this.model, this);
 		agregarKeyListener();
+	}
+
+	public void setLaberinto(Laberinto laberinto) {
+		this.laberinto = laberinto;
+		this.repaint();
 	}
 
 	private void agregarKeyListener() {
