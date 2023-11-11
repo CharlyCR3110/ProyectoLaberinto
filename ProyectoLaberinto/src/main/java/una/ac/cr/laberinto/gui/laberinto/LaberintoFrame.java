@@ -97,20 +97,27 @@ public class LaberintoFrame extends JFrame {
 		laberintoPanel.repaint();
 		String nombre = JOptionPane.showInputDialog("Nombre del laberinto");
 
-		if (!PathChecker.isNameValid(nombre)) {
-			JOptionPane.showMessageDialog(this, "El nombre del laberinto no es válido \n" +
-					"El nombre solo puede contener letras y números");
-			return;
-		} else if (!PathChecker.isValid(nombre)) {
-			JOptionPane.showMessageDialog(this, "Parece que ya existe un laberinto con ese nombre");
-			return;
-		}
-
+		if (!esNombreValido(nombre)) { return; }
 
 		if (JAXBUtil.guardarLaberinto(laberinto, nombre) == 1) {
 			JOptionPane.showMessageDialog(this, "Laberinto guardado correctamente");
 		} else {
 			JOptionPane.showMessageDialog(this, "Error al guardar el laberinto");
 		}
+	}
+
+	private boolean esNombreValido(String nombre) {
+		if (nombre == null || nombre.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "El nombre del laberinto no puede estar vacío");
+			return false;
+		}  else if (!PathChecker.isNameValid(nombre)) {
+			JOptionPane.showMessageDialog(this, "El nombre del laberinto no es válido \n" +
+					"El nombre solo puede contener letras y números");
+			return false;
+		} else if (!PathChecker.isValid(nombre)) {
+			JOptionPane.showMessageDialog(this, "Parece que ya existe un laberinto con ese nombre");
+			return false;
+		}
+		return true;
 	}
 }
