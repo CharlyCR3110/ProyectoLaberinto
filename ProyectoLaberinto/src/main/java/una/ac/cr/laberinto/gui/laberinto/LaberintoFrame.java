@@ -74,8 +74,8 @@ public class LaberintoFrame extends JFrame {
 		c.add(BorderLayout.CENTER,
 				new JScrollPane(
 						laberintoPanel = new LaberintoPanel(laberinto),
-						JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-						JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED
+						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS
 				));
 
 
