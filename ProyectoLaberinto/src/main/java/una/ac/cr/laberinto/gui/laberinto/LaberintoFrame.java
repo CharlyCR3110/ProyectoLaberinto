@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 
 public class LaberintoFrame extends JFrame {
 	private LaberintoPanel laberintoPanel;
-	private static final double[] OPCIONES_ZOOM = {0.25, 0.50, 1.0, 1.5, 2.0, 4.0};
 	private JComboBox<String> comboZoom;
 	private JComboBox<String> comboModo;
 	private JSlider controlZoom;
@@ -40,14 +39,7 @@ public class LaberintoFrame extends JFrame {
 
 		JPanel d = new JPanel();
 		d.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		d.add(new JLabel("Zoom: "));
 
-		String[] descripcionZoom = new String[OPCIONES_ZOOM.length];
-		for (int i = 0; i < OPCIONES_ZOOM.length; i++) {
-			descripcionZoom[i] = String.format("%3.1f%%", 100.0 * OPCIONES_ZOOM[i]);
-		}
-
-		d.add(comboZoom = new JComboBox<>(descripcionZoom));
 		d.add(new JLabel("Modo: "));
 		d.add(comboModo = new JComboBox<>(Laberinto.DESCRIPCION_MODO));
 
@@ -86,13 +78,7 @@ public class LaberintoFrame extends JFrame {
 						JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED
 				));
 
-		c.add(BorderLayout.LINE_END, controlZoom
-				= new JSlider(JSlider.VERTICAL, 125, 8000,
-				(int) (((Double) laberintoPanel.getEscala()) * 100.0 * 10)));
 
-//		comboZoom.addActionListener((ActionEvent e) -> {
-//			ajustarZoom();
-//		});
 //		comboModo.addActionListener((ActionEvent e) -> {
 //			ajustarModo();
 //		});
