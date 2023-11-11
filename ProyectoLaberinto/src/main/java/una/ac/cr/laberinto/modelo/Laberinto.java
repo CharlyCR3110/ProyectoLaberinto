@@ -1,8 +1,5 @@
 package una.ac.cr.laberinto.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Laberinto {
 	private int filas;
 	private int columnas;
