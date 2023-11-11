@@ -44,11 +44,16 @@ public class LaberintoController {
 			model.setJugador(model.getLaberinto().getNodoSalida());
 		} else if (keyEvent.getKeyCode() == 82) { // Reinicio del laberinto
 			System.out.println("Reiniciando laberinto");
-			model.getLaberinto().reiniciarLaberinto();
-			model.setJugador(model.getLaberinto().getNodoEntrada());
+			reiniciar();
 		} else {
 			System.out.println("Tecla no válida");
 		}
+	}
+
+
+	public void reiniciar() {
+		model.getLaberinto().reiniciarLaberinto();
+		model.setJugador(model.getLaberinto().getNodoEntrada());
 	}
 
 	private void repaint() {
