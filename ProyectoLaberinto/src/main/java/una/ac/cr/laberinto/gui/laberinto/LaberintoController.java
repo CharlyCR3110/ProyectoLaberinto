@@ -4,6 +4,7 @@ import una.ac.cr.laberinto.modelo.Laberinto;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
+import java.awt.event.MouseWheelListener;
 
 public class LaberintoController {
 	private LaberintoModel model;
@@ -11,6 +12,10 @@ public class LaberintoController {
 	public LaberintoController(LaberintoModel model, LaberintoPanel view) {
 		this.model = model;
 		this.view = view;
+	}
+
+	public double getZoomFactor() {
+		return model.getZoomFactor();
 	}
 
 	public KeyAdapter getKeyAdapter() {
@@ -62,5 +67,31 @@ public class LaberintoController {
 	public void setLaberinto(Laberinto laberinto) {
 		model.setLaberinto(laberinto);
 		view.setLaberinto(laberinto);
+	}
+
+	public MouseWheelListener getMouseWheelListener() {
+		return e -> {
+			int notches = e.getWheelRotation();
+			if (notches < 0) {
+				// Zoom in
+				setZoomFactor(1.1 * model.getZoomFactor());
+				view.repaint();
+			} else {
+				// Zoom out
+				setZoomFactor(0.9 * model.getZoomFactor());
+				view.repaint();
+			}
+			repaint();
+		};
+	}
+
+	public void setZoomFactor(double factor){
+		if(factor < getZoomFactor()){
+			model.setZoomFactor(getZoomFactor()/1.1);
+		}
+		else{
+			model.setZoomFactor(factor);
+		}
+		view.setZoomer(true);
 	}
 }
