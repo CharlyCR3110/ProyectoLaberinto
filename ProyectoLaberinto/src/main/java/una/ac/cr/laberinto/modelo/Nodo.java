@@ -110,5 +110,9 @@ public class Nodo {
 		this.visitado = false;
 		this.caminoIncorrecto = false;
 	}
+
+	public boolean esPared() {
+		return arriba == null && derecha == null && abajo == null && izquierda == null;
+	}
 }
 
