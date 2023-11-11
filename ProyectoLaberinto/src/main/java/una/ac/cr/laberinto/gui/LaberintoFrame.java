@@ -1,6 +1,7 @@
 package una.ac.cr.laberinto.gui;
 import una.ac.cr.laberinto.modelo.Laberinto;
 import una.ac.cr.laberinto.utils.JAXBUtil;
+import una.ac.cr.laberinto.utils.PathChecker;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -96,6 +97,17 @@ public class LaberintoFrame extends JFrame {
 		laberintoPanel.getController().reiniciar();
 		laberintoPanel.repaint();
 		String nombre = JOptionPane.showInputDialog("Nombre del laberinto");
+
+		if (!PathChecker.isNameValid(nombre)) {
+			JOptionPane.showMessageDialog(this, "El nombre del laberinto no es válido \n" +
+					"El nombre solo puede contener letras y números");
+			return;
+		} else if (!PathChecker.isValid(nombre)) {
+			JOptionPane.showMessageDialog(this, "Parece que ya existe un laberinto con ese nombre");
+			return;
+		}
+
+
 		if (JAXBUtil.guardarLaberinto(laberinto, nombre) == 1) {
 			JOptionPane.showMessageDialog(this, "Laberinto guardado correctamente");
 		} else {
