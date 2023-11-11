@@ -1,5 +1,6 @@
 package una.ac.cr.laberinto.gui;
 import una.ac.cr.laberinto.modelo.Laberinto;
+import una.ac.cr.laberinto.utils.JAXBUtil;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -57,6 +58,14 @@ public class LaberintoFrame extends JFrame {
 			}
 		});
 
+		d.add(new JButton("Guardar") {	// guarda el laberinto en un archivo
+			{
+				addActionListener((ActionEvent e) -> {
+					guardar();
+				});
+			}
+		});
+
 
 
 		c.add(BorderLayout.PAGE_START, d);
@@ -80,5 +89,17 @@ public class LaberintoFrame extends JFrame {
 //		controlZoom.addChangeListener((ChangeEvent e) -> {
 //			panelPrincipal.setEscala(controlZoom.getValue() / (100.0 * 10));
 //		});
+	}
+
+
+	private void guardar() {
+		laberintoPanel.getController().reiniciar();
+		laberintoPanel.repaint();
+		String nombre = JOptionPane.showInputDialog("Nombre del laberinto");
+		if (JAXBUtil.guardarLaberinto(laberinto, nombre) == 1) {
+			JOptionPane.showMessageDialog(this, "Laberinto guardado correctamente");
+		} else {
+			JOptionPane.showMessageDialog(this, "Error al guardar el laberinto");
+		}
 	}
 }
