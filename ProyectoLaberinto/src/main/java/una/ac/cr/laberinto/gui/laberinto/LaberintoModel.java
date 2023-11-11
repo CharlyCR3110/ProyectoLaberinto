@@ -10,10 +10,8 @@ public class LaberintoModel {
 	private Laberinto laberinto;
 	private AlgoritmoSolucion algoritmoSolucion;
 	private Nodo jugador; // Representa la posición del jugador en el laberinto
-	private LaberintoPanel panel;
 	public LaberintoModel(Laberinto laberinto, LaberintoPanel panel) {
 		this.laberinto = laberinto;
-		this.panel = panel;
 		this.algoritmoSolucion = new AlgoritmoSolucion(laberinto);
 		this.jugador = laberinto.getNodoEntrada(); // El jugador comienza en el nodo de entrada
 	}
@@ -21,13 +19,11 @@ public class LaberintoModel {
 	public Nodo getJugador() {
 		return jugador;
 	}
-
-	public LaberintoPanel getPanel() {
-		return this.panel;
-	}
-
 	public Laberinto getLaberinto() {
 		return laberinto;
+	}
+	public void setLaberinto(Laberinto laberinto) {
+		this.laberinto = laberinto;
 	}
 
 	public AlgoritmoSolucion getAlgoritmoSolucion() {
