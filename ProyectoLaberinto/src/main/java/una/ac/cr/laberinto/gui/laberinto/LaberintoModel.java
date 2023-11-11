@@ -24,6 +24,8 @@ public class LaberintoModel {
 	}
 	public void setLaberinto(Laberinto laberinto) {
 		this.laberinto = laberinto;
+		this.algoritmoSolucion = new AlgoritmoSolucion(laberinto);
+		this.jugador = laberinto.getNodoEntrada();
 	}
 
 	public AlgoritmoSolucion getAlgoritmoSolucion() {
