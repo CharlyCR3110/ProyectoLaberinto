@@ -1,11 +1,9 @@
-package una.ac.cr.laberinto.gui;
+package una.ac.cr.laberinto.gui.laberinto;
 import una.ac.cr.laberinto.modelo.Laberinto;
 import una.ac.cr.laberinto.modelo.Nodo;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class LaberintoPanel extends JPanel {
 	private Laberinto laberinto;

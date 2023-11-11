@@ -1,11 +1,9 @@
-package una.ac.cr.laberinto.gui;
+package una.ac.cr.laberinto.gui.laberinto;
 
 import una.ac.cr.laberinto.algoritmos.AlgoritmoSolucion;
 import una.ac.cr.laberinto.modelo.Laberinto;
 import una.ac.cr.laberinto.modelo.Nodo;
 
-import java.awt.event.KeyEvent;
-import java.util.List;
 import java.util.Objects;
 
 public class LaberintoModel {

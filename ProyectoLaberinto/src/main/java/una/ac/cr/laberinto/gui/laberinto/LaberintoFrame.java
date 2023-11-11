@@ -1,10 +1,9 @@
-package una.ac.cr.laberinto.gui;
+package una.ac.cr.laberinto.gui.laberinto;
 import una.ac.cr.laberinto.modelo.Laberinto;
 import una.ac.cr.laberinto.utils.JAXBUtil;
 import una.ac.cr.laberinto.utils.PathChecker;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 

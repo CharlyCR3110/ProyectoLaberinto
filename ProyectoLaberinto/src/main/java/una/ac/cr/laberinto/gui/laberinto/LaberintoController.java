@@ -1,8 +1,4 @@
-package una.ac.cr.laberinto.gui;
-
-import una.ac.cr.laberinto.algoritmos.AlgoritmoSolucion;
-import una.ac.cr.laberinto.modelo.Laberinto;
-import una.ac.cr.laberinto.modelo.Nodo;
+package una.ac.cr.laberinto.gui.laberinto;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
