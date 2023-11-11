@@ -109,4 +109,8 @@ public class LaberintoPanel extends JPanel {
 	public Object getEscala() {
 		return escala;
 	}
+
+	public LaberintoController getController() {
+		return controller;
+	}
 }
