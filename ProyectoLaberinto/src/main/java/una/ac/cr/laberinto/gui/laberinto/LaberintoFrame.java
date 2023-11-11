@@ -1,4 +1,5 @@
 package una.ac.cr.laberinto.gui.laberinto;
+import una.ac.cr.laberinto.gui.archivo.FileChooserFrame;
 import una.ac.cr.laberinto.modelo.Laberinto;
 import una.ac.cr.laberinto.utils.JAXBUtil;
 import una.ac.cr.laberinto.utils.PathChecker;
@@ -66,6 +67,15 @@ public class LaberintoFrame extends JFrame {
 			}
 		});
 
+		d.add(new JButton("Recuperar") {
+			{
+				addActionListener((ActionEvent e) -> {
+					recuperar();
+				});
+			}
+		});
+
+
 
 
 		c.add(BorderLayout.PAGE_START, d);
@@ -89,6 +99,24 @@ public class LaberintoFrame extends JFrame {
 //		controlZoom.addChangeListener((ChangeEvent e) -> {
 //			panelPrincipal.setEscala(controlZoom.getValue() / (100.0 * 10));
 //		});
+	}
+
+	private void recuperar() {
+		FileChooserFrame fileChooserFrame = new FileChooserFrame();
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				String ruta = fileChooserFrame.showFileChooser();
+				try {
+					if (ruta != null) {
+						Laberinto laberinto = JAXBUtil.cargarLaberinto(ruta);
+						laberintoPanel.getController().setLaberinto(laberinto);
+					}
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Error al cargar el laberinto");
+				}
+			}
+		});
 	}
 
 
