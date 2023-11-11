@@ -11,12 +11,14 @@ public class LaberintoPanel extends JPanel {
 	private LaberintoController controller;
 	private int cellWidth;
 	private int cellHeight;
-	
+	private boolean zoomer;
+
 	public LaberintoPanel(Laberinto laberinto) {
 		this.laberinto = laberinto;
 		this.model = new LaberintoModel(laberinto, this);
 		this.controller = new LaberintoController(this.model, this);
 		agregarKeyListener();
+		agregarMouseWheelListener();
 	}
 
 	public void setLaberinto(Laberinto laberinto) {
@@ -27,13 +29,17 @@ public class LaberintoPanel extends JPanel {
 	private void agregarKeyListener() {
 		// Agregar el KeyListener del controlador al LaberintoPanel
 		this.addKeyListener(controller.getKeyAdapter());
-
 		// Necesitas establecer el enfoque en el panel para que pueda recibir eventos de teclado
 		setFocusable(true);
 		requestFocusInWindow();
 	}
+
+	private void agregarMouseWheelListener() {
+		// Para hacer zoom con la rueda del mouse
+		this.addMouseWheelListener(controller.getMouseWheelListener());
+	}
 	@Override
-	public void repaint() {
+	public void repaint() {	// casi que innecesario
 		System.out.println("Repintando");
 		// Vuelve a dibujar el panel
 		super.repaint();
@@ -46,6 +52,11 @@ public class LaberintoPanel extends JPanel {
 
 		cellWidth = getWidth() / laberinto.getColumnas();
 		cellHeight = getHeight() / laberinto.getFilas();
+
+		if(zoomer){
+			g2d.scale(controller.getZoomFactor(), controller.getZoomFactor());
+			zoomer = false;
+		}
 
 		for (int i = 0; i < laberinto.getFilas(); i++) {
 			for (int j = 0; j < laberinto.getColumnas(); j++) {
@@ -106,5 +117,9 @@ public class LaberintoPanel extends JPanel {
 
 	public LaberintoController getController() {
 		return controller;
+	}
+
+	public void setZoomer(boolean b) {
+		zoomer = b;
 	}
 }
