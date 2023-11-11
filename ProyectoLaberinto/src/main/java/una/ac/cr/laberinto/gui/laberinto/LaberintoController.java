@@ -72,16 +72,19 @@ public class LaberintoController {
 	public MouseWheelListener getMouseWheelListener() {
 		return e -> {
 			int notches = e.getWheelRotation();
+			double zoomFactor = getZoomFactor();
+
 			if (notches < 0) {
 				// Zoom in
-				setZoomFactor(1.1 * model.getZoomFactor());
-				view.repaint();
+				zoomFactor *= 1.1;
 			} else {
 				// Zoom out
-				setZoomFactor(0.9 * model.getZoomFactor());
-				view.repaint();
+				zoomFactor *= 0.9;
 			}
+
+			setZoomFactor(zoomFactor);
 			repaint();
+			return;
 		};
 	}
 
