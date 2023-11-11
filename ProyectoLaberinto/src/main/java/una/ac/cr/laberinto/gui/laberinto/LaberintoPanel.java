@@ -55,6 +55,7 @@ public class LaberintoPanel extends JPanel {
 
 		if(zoomer){
 			g2d.scale(controller.getZoomFactor(), controller.getZoomFactor());
+			ajustarVistaZoom();
 			zoomer = false;
 		}
 
@@ -114,6 +115,42 @@ public class LaberintoPanel extends JPanel {
 			}
 		}
 	}
+
+	private void ajustarVistaZoom() {	// para agregar los scrollbars
+//		 Ajustar el tamaño de la vista en función del factor de zoom
+		Dimension currentSize = getSize();
+		Dimension newSize = new Dimension((int) (getWidth() * controller.getZoomFactor()),
+				(int) (getHeight() * controller.getZoomFactor()));
+
+		if (!currentSize.equals(newSize)) {
+			setPreferredSize(newSize);
+			revalidate();
+		}
+
+		// Ajustar las barras de desplazamiento si es necesario
+		if (getParent() instanceof JViewport) {
+			JViewport viewport = (JViewport) getParent();
+			Dimension extentSize = viewport.getExtentSize();
+			Dimension viewSize = getSize();
+			Point viewPosition = viewport.getViewPosition();
+
+			int maxX = Math.max(0, newSize.width - extentSize.width);
+			int maxY = Math.max(0, newSize.height - extentSize.height);
+
+			// Ajustar la posición de la vista si es necesario
+			if (viewPosition.x > maxX) {
+				viewPosition.x = maxX;
+			}
+
+			if (viewPosition.y > maxY) {
+				viewPosition.y = maxY;
+			}
+
+			viewport.setViewPosition(viewPosition);
+			revalidate();
+		}
+	}
+
 
 	public LaberintoController getController() {
 		return controller;
