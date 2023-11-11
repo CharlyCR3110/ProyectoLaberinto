@@ -11,7 +11,6 @@ public class LaberintoPanel extends JPanel {
 	private LaberintoController controller;
 	private int cellWidth;
 	private int cellHeight;
-	private double escala = 1.0;	// default
 	
 	public LaberintoPanel(Laberinto laberinto) {
 		this.laberinto = laberinto;
@@ -55,7 +54,7 @@ public class LaberintoPanel extends JPanel {
 
 				// Dibujar celdas
 				g.setColor(Color.WHITE);
-				g.fillRect((int) (x * escala), (int) (y * escala), (int) (cellWidth * escala), (int) (cellHeight * escala));
+				g.fillRect((int) (x), (int) (y), (int) (cellWidth), (int) (cellHeight));
 
 				Graphics2D g2d = (Graphics2D) g;
 
@@ -103,15 +102,6 @@ public class LaberintoPanel extends JPanel {
 				}
 			}
 		}
-	}
-
-	public void setEscala(double escala) {
-		this.escala = escala;
-		repaint();
-	}
-
-	public Object getEscala() {
-		return escala;
 	}
 
 	public LaberintoController getController() {
