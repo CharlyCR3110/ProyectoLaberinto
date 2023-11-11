@@ -84,10 +84,8 @@ public class LaberintoController {
 
 			setZoomFactor(zoomFactor);
 			repaint();
-			return;
 		};
 	}
-
 	public void setZoomFactor(double factor){
 		if(factor < getZoomFactor()){
 			model.setZoomFactor(getZoomFactor()/1.1);
