@@ -68,6 +68,7 @@ public class LaberintoModel {
 	}
 
 	public void setZoomFactor(double factor) {
-		this.zoomFactor = factor;
+		// se pone un límite al zoom out para que no se vea tan mal
+		this.zoomFactor = Math.max(factor, 0.25);
 	}
 }
