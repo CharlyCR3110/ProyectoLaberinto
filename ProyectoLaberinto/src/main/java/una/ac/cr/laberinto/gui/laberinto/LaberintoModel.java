@@ -10,6 +10,7 @@ public class LaberintoModel {
 	private Laberinto laberinto;
 	private AlgoritmoSolucion algoritmoSolucion;
 	private Nodo jugador; // Representa la posición del jugador en el laberinto
+	private double zoomFactor = 1.0;
 	public LaberintoModel(Laberinto laberinto, LaberintoPanel panel) {
 		this.laberinto = laberinto;
 		this.algoritmoSolucion = new AlgoritmoSolucion(laberinto);
@@ -60,5 +61,13 @@ public class LaberintoModel {
 
 	public void setJugador(Nodo nodo) {
 		this.jugador = nodo;
+	}
+
+	public double getZoomFactor() {
+		return zoomFactor;
+	}
+
+	public void setZoomFactor(double factor) {
+		this.zoomFactor = factor;
 	}
 }
