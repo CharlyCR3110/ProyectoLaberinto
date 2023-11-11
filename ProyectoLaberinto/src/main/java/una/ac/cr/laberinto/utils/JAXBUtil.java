@@ -10,8 +10,13 @@ import una.ac.cr.laberinto.modelo.Laberinto;
 import java.io.File;
 
 public class JAXBUtil {
-	public static void guardarLaberinto(Laberinto laberinto, String nombreArchivo) {
+	public static int guardarLaberinto(Laberinto laberinto, String nombreArchivo) {
 		try {
+			// Obtener la ruta absoluta del directorio del proyecto
+			String directorioProyecto = System.getProperty("user.dir");
+			// Construir la ruta completa del archivo XML
+			String ruta = directorioProyecto + "/src/main/resources/laberintos/" + nombreArchivo + ".xml";
+
 			// Crear el contexto JAXB
 			JAXBContext context = JAXBContext.newInstance(Laberinto.class);
 
@@ -22,10 +27,14 @@ public class JAXBUtil {
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 			// Escribir el Laberinto a un archivo XML
-			marshaller.marshal(laberinto, new File(nombreArchivo));
+			marshaller.marshal(laberinto, new File(ruta));
+			// devolver un 1 si se guardó correctamente
+			return 1;
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
+		// devolver un 0 si no se guardó correctamente
+		return 0;
 	}
 
 	public static Laberinto cargarLaberinto(String nombreArchivo) {
