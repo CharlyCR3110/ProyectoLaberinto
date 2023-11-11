@@ -1,8 +1,17 @@
 package una.ac.cr.laberinto.modelo;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Laberinto {
 	private int filas;
 	private int columnas;
+
+	@XmlElement(name = "nodos")
 	private Nodo[][] nodos;
 	private Nodo nodoEntrada;
 	private Nodo nodoSalida;
@@ -17,6 +26,10 @@ public class Laberinto {
 		this.columnas = columnas;
 		this.nodos = new Nodo[filas][columnas];
 		inicializarNodos();
+	}
+
+	public Laberinto() {
+		this(10, 10);
 	}
 
 	private void inicializarNodos() {
