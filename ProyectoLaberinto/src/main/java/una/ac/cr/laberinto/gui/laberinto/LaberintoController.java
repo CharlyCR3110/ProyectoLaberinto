@@ -1,13 +1,16 @@
 package una.ac.cr.laberinto.gui.laberinto;
 
+import una.ac.cr.laberinto.modelo.Laberinto;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
 
 public class LaberintoController {
 	private LaberintoModel model;
-
-	public LaberintoController(LaberintoModel model) {
+	private LaberintoPanel view;
+	public LaberintoController(LaberintoModel model, LaberintoPanel view) {
 		this.model = model;
+		this.view = view;
 	}
 
 	public KeyAdapter getKeyAdapter() {
@@ -53,6 +56,11 @@ public class LaberintoController {
 	}
 
 	private void repaint() {
-		model.getPanel().repaint();
+		view.repaint();
+	}
+
+	public void setLaberinto(Laberinto laberinto) {
+		model.setLaberinto(laberinto);
+		view.setLaberinto(laberinto);
 	}
 }
