@@ -1,19 +1,35 @@
 package una.ac.cr.laberinto.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Laberinto {
 	private int filas;
 	private int columnas;
+
+	@XmlElement(name = "nodos")
 	private Nodo[][] nodos;
 	private Nodo nodoEntrada;
 	private Nodo nodoSalida;
+
+	public static String[] DESCRIPCION_MODO = {"Guías", "Bloque", "Línea"};
+	// int[] MODOS = {MODO_GUIA, MODO_BLOQUE, MODO_LINEA};
+	int MODO_BLOQUE = 0;
+	int MODO_GUIA = -1;
+	int MODO_LINEA = 1;
 	public Laberinto(int filas, int columnas) {
 		this.filas = filas;
 		this.columnas = columnas;
 		this.nodos = new Nodo[filas][columnas];
 		inicializarNodos();
+	}
+
+	public Laberinto() {
+		this(10, 10);
 	}
 
 	private void inicializarNodos() {
@@ -63,4 +79,12 @@ public class Laberinto {
 		}
 	}
 
+	public void reiniciarLaberinto() {
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < columnas ; j++) {
+				nodos[i][j].setDefault();
+			}
+			System.out.println();
+		}
+	}
 }

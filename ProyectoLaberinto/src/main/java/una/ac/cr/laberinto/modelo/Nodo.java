@@ -1,20 +1,37 @@
 package una.ac.cr.laberinto.modelo;
 
+import jakarta.xml.bind.annotation.*;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Nodo {
 	private int fila;
 	private int columna;
 	private boolean visitado;
 	private boolean caminoIncorrecto;
-
+	@XmlID
+	private String id;
+	@XmlIDREF
+	@XmlElement
 	private Nodo arriba;
+	@XmlIDREF
+	@XmlElement
 	private Nodo derecha;
+	@XmlIDREF
+	@XmlElement
 	private Nodo abajo;
+	@XmlIDREF
+	@XmlElement
 	private Nodo izquierda;
 
 	public Nodo(int fila, int columna) {
 		this.fila = fila;
 		this.columna = columna;
 		this.visitado = false;
+		this.id = "Nodo: " + fila + "," + columna;
+	}
+
+	public Nodo() {
+		this(0, 0);
 	}
 
 	public int getFila() {
@@ -103,6 +120,15 @@ public class Nodo {
 	}
 
 	public boolean isVacio() {
+		return arriba == null && derecha == null && abajo == null && izquierda == null;
+	}
+
+	public void setDefault() {
+		this.visitado = false;
+		this.caminoIncorrecto = false;
+	}
+
+	public boolean esPared() {
 		return arriba == null && derecha == null && abajo == null && izquierda == null;
 	}
 }

@@ -1,7 +1,7 @@
 package una.ac.cr;
 
 import una.ac.cr.laberinto.algoritmos.AlgoritmoGeneracion;
-import una.ac.cr.laberinto.gui.LaberintoFrame;
+import una.ac.cr.laberinto.gui.laberinto.LaberintoFrame;
 import una.ac.cr.laberinto.modelo.Laberinto;
 
 import javax.swing.*;
