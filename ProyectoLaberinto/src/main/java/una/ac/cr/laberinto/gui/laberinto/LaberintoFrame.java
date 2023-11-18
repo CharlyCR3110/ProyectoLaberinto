@@ -17,13 +17,14 @@ public class LaberintoFrame extends JFrame {
 
 	public LaberintoFrame(Laberinto laberinto) {
 		this.laberinto = laberinto;
-		inicializar();
+		inicializar(laberinto.getNombre());
 	}
 
 	
-	private void inicializar() {
+	private void inicializar(String title) {
 		ajustarComponentes(getContentPane());
-		setTitle("Laberinto");
+		setTitle(title);
+		setIconImage(new ImageIcon("src/main/resources/images/maze.jpeg").getImage());
 		setResizable(true);
 		setMinimumSize(new Dimension(640, 480));
 		setSize(800, 600);
