@@ -91,63 +91,67 @@ public class MainFrame extends JFrame {
 		return buttonPanel;
 	}
 
-	private void handleNuevoLaberintoButtonClick() {
+	private JPanel createDimensionPanel() {
 		JPanel dimensionPanel = new JPanel(new GridLayout(6, 3));
-		JLabel nombreLabel = new JLabel("Nombre:");
-		JLabel filasLabel = new JLabel("Filas:");
-		JLabel columnasLabel = new JLabel("Columnas:");
-		JTextField nombreField = new JTextField();
-		JTextField filasField = new JTextField();
-		JTextField columnasField = new JTextField();
+		dimensionPanel.add(new JLabel("Nombre:"));
+		dimensionPanel.add(new JTextField());
+		dimensionPanel.add(new JLabel("Filas:"));
+		dimensionPanel.add(new JTextField());
+		dimensionPanel.add(new JLabel("Columnas:"));
+		dimensionPanel.add(new JTextField());
+		return dimensionPanel;
+	}
 
-		dimensionPanel.add(nombreLabel);
-		dimensionPanel.add(nombreField);
+	private boolean isValidDimensions(int filas, int columnas) {
+		return filas >= 4 && columnas >= 4;
+	}
 
-		dimensionPanel.add(filasLabel);
-		dimensionPanel.add(filasField);
+	private Laberinto createLaberinto(String nombre, int filas, int columnas) {
+		AlgoritmoGeneracion algoritmoGeneracion = new AlgoritmoGeneracion(filas, columnas);
+		Laberinto laberinto = algoritmoGeneracion.getLaberinto();
+		laberinto.setNombre(nombre);
+		return laberinto;
+	}
 
-		dimensionPanel.add(columnasLabel);
-		dimensionPanel.add(columnasField);
+	private void showLaberintoFrame(Laberinto laberinto) {
+		LaberintoFrame laberintoFrame = new LaberintoFrame(laberinto, this.controller);
+		laberintoFrame.setVisible(true);
+		LaberintoInfo laberintoInfo = new LaberintoInfo(laberinto);
+		laberintoInfo.setLaberintoFrame(laberintoFrame);
+		laberintosAbiertos.add(laberintoInfo);
+		laberintoTableModel.setLaberintos(laberintosAbiertos);
+		laberintoTableModel.fireTableDataChanged();
+	}
 
-		// Muestra el cuadro de dialogo para obtener las dimensiones del laberinto
+	private void handleNuevoLaberintoButtonClick() {
+		JPanel dimensionPanel = createDimensionPanel();
+
 		int result = JOptionPane.showConfirmDialog(MainFrame.this, dimensionPanel, "Nuevo Laberinto",
 				JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
-		// Revisa el resultado del cuadro de diálogo y crea un nuevo laberinto (si es posible)
 		if (result == JOptionPane.OK_OPTION) {
 			try {
+				JTextField nombreField = (JTextField) dimensionPanel.getComponent(1);
+				JTextField filasField = (JTextField) dimensionPanel.getComponent(3);
+				JTextField columnasField = (JTextField) dimensionPanel.getComponent(5);
+
 				int filas = Integer.parseInt(filasField.getText().trim());
 				int columnas = Integer.parseInt(columnasField.getText().trim());
 
-				if (filas < 4 || columnas < 4) {
+				if (!isValidDimensions(filas, columnas)) {
 					JOptionPane.showMessageDialog(MainFrame.this, "Por favor, introduce números mayores o iguales a 4.", "Error", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 
-				AlgoritmoGeneracion algoritmoGeneracion = new AlgoritmoGeneracion(filas, columnas);
-				Laberinto laberinto = algoritmoGeneracion.getLaberinto();
-				laberinto.setNombre(nombreField.getText().trim());
+				String nombre = nombreField.getText().trim();
+				Laberinto laberinto = createLaberinto(nombre, filas, columnas);
 
-				if ( this.controller.guardar(nombreField.getText().trim(), laberinto) ) {
+				if (this.controller.guardar(nombre, laberinto)) {
 					JOptionPane.showMessageDialog(MainFrame.this, "Laberinto creado y guardado con éxito.", "Información", JOptionPane.INFORMATION_MESSAGE);
+					showLaberintoFrame(laberinto);
 				} else {
 					JOptionPane.showMessageDialog(MainFrame.this, "Error al crear y guardar el laberinto.", "Error", JOptionPane.ERROR_MESSAGE);
-					return;
 				}
-				// Crea y muestra la nueva ventana del laberinto
-				LaberintoFrame laberintoFrame = new LaberintoFrame(laberinto, this.controller);
-				laberintoFrame.setVisible(true);
-
-
-				// Agregar información del laberinto a la lista
-				LaberintoInfo laberintoInfo = new LaberintoInfo(laberinto);
-				// Setea la referencia a la ventana del laberinto en LaberintoInfo
-				laberintoInfo.setLaberintoFrame(laberintoFrame);
-
-				laberintosAbiertos.add(laberintoInfo);
-				// Actualizar el modelo de la tabla
-				laberintoTableModel.setLaberintos(laberintosAbiertos);
-				laberintoTableModel.fireTableDataChanged();
 			} catch (NumberFormatException ex) {
 				JOptionPane.showMessageDialog(MainFrame.this, "Por favor, introduce números válidos.", "Error", JOptionPane.ERROR_MESSAGE);
 			}
