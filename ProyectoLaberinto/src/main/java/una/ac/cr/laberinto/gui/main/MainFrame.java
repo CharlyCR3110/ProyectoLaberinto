@@ -13,7 +13,11 @@ import java.awt.event.ActionListener;
 
 
 public class MainFrame extends JFrame {
-	public MainFrame() {
+
+	private MainFrameController controller;
+
+	public MainFrame(MainFrameController controller) {
+		this.controller = controller;
 		// Configura la ventana principal
 		setTitle("Laberinto App");
 		setSize(400, 400);
@@ -72,7 +76,7 @@ public class MainFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// Se llama al método recuperar() para recuperar el laberinto desde un XML
-				Laberinto laberinto = recuperar();
+				Laberinto laberinto = controller.recuperar();
 				if (laberinto != null) {
 					// Crea y muestra la nueva ventana del laberinto
 					LaberintoFrame laberintoFrame = new LaberintoFrame(laberinto);
@@ -83,25 +87,21 @@ public class MainFrame extends JFrame {
 			}
 		});
 
-		// Agrega los botones al panel principal
-		mainPanel.add(nuevoLaberintoButton, BorderLayout.EAST);
-		mainPanel.add(recuperarLaberintoButton, BorderLayout.WEST);
+
+		// Crea un panel para contener los botones
+		JPanel buttonPanel = new JPanel(new FlowLayout());
+		buttonPanel.add(nuevoLaberintoButton);
+		buttonPanel.add(recuperarLaberintoButton);
+
+		// Agrega el panel de botones al panel principal en la parte superior
+		mainPanel.add(buttonPanel, BorderLayout.NORTH);
+
+//		// Agrega la tabla al centro del panel principal
+//		mainPanel.add(scrollPane, BorderLayout.CENTER);
 
 		// Agrega el panel principal a la ventana
 		add(mainPanel);
 	}
 
-	private Laberinto recuperar() {
-		FileChooserFrame fileChooserFrame = new FileChooserFrame();
-		String ruta = fileChooserFrame.showFileChooser();
-		try {
-			if (ruta != null) {
-				Laberinto laberinto = JAXBUtil.cargarLaberinto(ruta);
-				return laberinto;
-			}
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Error al cargar el laberinto");
-		}
-		return null;
-	}
+
 }
