@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class MainFrame extends JFrame {
 
@@ -124,7 +125,7 @@ public class MainFrame extends JFrame {
 					return;
 				}
 				// Crea y muestra la nueva ventana del laberinto
-				LaberintoFrame laberintoFrame = new LaberintoFrame(laberinto);
+				LaberintoFrame laberintoFrame = new LaberintoFrame(laberinto, this.controller);
 				laberintoFrame.setVisible(true);
 
 
@@ -144,7 +145,7 @@ public class MainFrame extends JFrame {
 	private void handleRecuperarLaberintoButtonClick() {
 		Laberinto laberinto = this.controller.recuperar();
 		if (laberinto != null) {
-			LaberintoFrame laberintoFrame = new LaberintoFrame(laberinto);
+			LaberintoFrame laberintoFrame = new LaberintoFrame(laberinto, this.controller);
 			laberintoFrame.setVisible(true);
 
 			System.out.println(laberinto.getNombre());
@@ -158,4 +159,19 @@ public class MainFrame extends JFrame {
 			JOptionPane.showMessageDialog(this, "No se recuperó ningún laberinto", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
+
+	public void removeLaberintoInfo(LaberintoInfo laberintoInfo) {
+		// primer elemento cuyo nombre sea igual al nombre del laberinto
+		Optional<LaberintoInfo> laberintoToRemove = laberintosAbiertos.stream()
+				.filter(l -> l.getNombre().equals(laberintoInfo.getNombre()) && l.getFechaDeCreacion().equals(laberintoInfo.getFechaDeCreacion()))
+				.findFirst();
+
+		// si encuentra el laberinto, lo elimina de la lista y actualiza el modelo de la tabla
+		laberintoToRemove.ifPresent(l -> {
+			laberintosAbiertos.remove(l);
+			laberintoTableModel.setLaberintos(laberintosAbiertos);
+			laberintoTableModel.fireTableDataChanged();
+		});
+	}
+
 }
