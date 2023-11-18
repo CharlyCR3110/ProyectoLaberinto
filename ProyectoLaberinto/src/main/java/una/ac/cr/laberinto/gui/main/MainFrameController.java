@@ -37,8 +37,11 @@ public class MainFrameController {
 		}
 	}
 
+	public void handleLaberintoFrameClose(LaberintoInfo laberintoInfo) {
+		mainFrame.removeLaberintoInfo(laberintoInfo);
+	}
+
 	public MainFrame getMainFrame() {
 		return mainFrame;
 	}
-
 }
