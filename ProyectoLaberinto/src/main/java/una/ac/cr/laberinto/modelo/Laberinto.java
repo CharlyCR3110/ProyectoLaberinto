@@ -5,6 +5,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import una.ac.cr.laberinto.utils.LocalDateAdapter;
+
+import java.time.LocalDate;
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Laberinto {
@@ -21,6 +25,11 @@ public class Laberinto {
 	int MODO_BLOQUE = 0;
 	int MODO_GUIA = -1;
 	int MODO_LINEA = 1;
+	@XmlJavaTypeAdapter(LocalDateAdapter.class)
+	private LocalDate fechaDeCreacion;
+	@XmlElement(name = "nombre")
+	private String nombreLaberinto;
+
 	public Laberinto(int filas, int columnas) {
 		this.filas = filas;
 		this.columnas = columnas;
@@ -30,6 +39,14 @@ public class Laberinto {
 
 	public Laberinto() {
 		this(10, 10);
+	}
+
+	public Laberinto(int filas, int columnas, LocalDate fechaDeCreacion) {
+		this.filas = filas;
+		this.columnas = columnas;
+		this.fechaDeCreacion = fechaDeCreacion;
+		this.nodos = new Nodo[filas][columnas];
+		inicializarNodos();
 	}
 
 	private void inicializarNodos() {
@@ -86,5 +103,17 @@ public class Laberinto {
 			}
 			System.out.println();
 		}
+	}
+
+	public LocalDate getFechaDeCreacion() {
+		return this.fechaDeCreacion;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombreLaberinto = nombre;
+	}
+
+	public String getNombre() {
+		return nombreLaberinto;
 	}
 }
