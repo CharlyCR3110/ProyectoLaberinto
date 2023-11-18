@@ -14,9 +14,7 @@ import java.awt.event.WindowEvent;
 
 public class LaberintoFrame extends JFrame {
 	private LaberintoPanel laberintoPanel;
-	private JComboBox<String> comboZoom;
 	private JComboBox<String> comboModo;
-	private JSlider controlZoom;
 	private Laberinto laberinto;
 	MainFrameController mainFrameController;
 
