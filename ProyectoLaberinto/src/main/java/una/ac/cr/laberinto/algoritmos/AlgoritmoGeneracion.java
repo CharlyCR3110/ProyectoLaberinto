@@ -3,6 +3,7 @@ package una.ac.cr.laberinto.algoritmos;
 import una.ac.cr.laberinto.modelo.Laberinto;
 import una.ac.cr.laberinto.modelo.Nodo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
@@ -91,11 +92,16 @@ public class AlgoritmoGeneracion {
 		return nodos[fila][columna];
 	}
 	public Laberinto getLaberinto() {
-		Laberinto laberinto = new Laberinto(filas, columnas);
+		LocalDate fechaDeCreacion = java.time.LocalDate.now();
+		Laberinto laberinto = new Laberinto(filas, columnas, fechaDeCreacion);
 		reiniciarVisitas();	// se reinician las visitas para que el algoritmo de resolución funcione correctamente
 		laberinto.setNodos(nodos);
 		laberinto.setNodoEntrada(nodoAleatorio());
 		laberinto.setNodoSalida(nodoAleatorio());
+		while (laberinto.getNodoEntrada() == laberinto.getNodoSalida()) {
+			laberinto.setNodoSalida(nodoAleatorio());
+		}
+
 		return laberinto;
 	}
 

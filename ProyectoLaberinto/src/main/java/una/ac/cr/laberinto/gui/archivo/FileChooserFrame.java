@@ -7,9 +7,9 @@ import java.io.File;
 
 public class FileChooserFrame extends JFrame {
 	public FileChooserFrame() {
-		super("File Chooser Example");
+		super("Elegir un laberinto");
 
-		JButton openButton = new JButton("Open File Chooser");
+		JButton openButton = new JButton("Buscar un laberinto");
 
 		openButton.addActionListener(new ActionListener() {
 			@Override
@@ -50,6 +50,9 @@ public class FileChooserFrame extends JFrame {
 
 		int result = fileChooser.showOpenDialog(this);
 
+
+		// Establecer modo de solo lectura
+		fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 		if (result == JFileChooser.APPROVE_OPTION) {
 			File selectedFolder = fileChooser.getSelectedFile();
 			return selectedFolder.getPath();

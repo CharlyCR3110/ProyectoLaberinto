@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<laberinto>
+    <filas>10</filas>
+    <columnas>10</columnas>
+    <nodos>
+        <item>
+            <fila>0</fila>
+            <columna>0</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 0,0</id>
+            <derecha>Nodo: 0,1</derecha>
+        </item>
+        <item>
+            <fila>0</fila>
+            <columna>1</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 0,1</id>
+            <abajo>Nodo: 1,1</abajo>
+            <izquierda>Nodo: 0,0</izquierda>
+        </item>
+        <item>
+            <fila>0</fila>
+            <columna>2</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 0,2</id>
+            <derecha>Nodo: 0,3</derecha>
+        </item>
+        <item>
+            <fila>0</fila>
+            <columna>3</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 0,3</id>
+            <derecha>Nodo: 0,4</derecha>
+            <izquierda>Nodo: 0,2</izquierda>
+        </item>
+        <item>
+            <fila>0</fila>
+            <columna>4</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 0,4</id>
+            <derecha>Nodo: 0,5</derecha>
+            <izquierda>Nodo: 0,3</izquierda>
+        </item>
+        <item>
+            <fila>0</fila>
+            <columna>5</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 0,5</id>
+            <derecha>Nodo: 0,6</derecha>
+            <abajo>Nodo: 1,5</abajo>
+            <izquierda>Nodo: 0,4</izquierda>
+        </item>
+        <item>
+            <fila>0</fila>
+            <columna>6</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 0,6</id>
+            <derecha>Nodo: 0,7</derecha>
+            <izquierda>Nodo: 0,5</izquierda>
+        </item>
+        <item>
+            <fila>0</fila>
+            <columna>7</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 0,7</id>
+            <derecha>Nodo: 0,8</derecha>
+            <abajo>Nodo: 1,7</abajo>
+            <izquierda>Nodo: 0,6</izquierda>
+        </item>
+        <item>
+            <fila>0</fila>
+            <columna>8</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 0,8</id>
+            <derecha>Nodo: 0,9</derecha>
+            <izquierda>Nodo: 0,7</izquierda>
+        </item>
+        <item>
+            <fila>0</fila>
+            <columna>9</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 0,9</id>
+            <abajo>Nodo: 1,9</abajo>
+            <izquierda>Nodo: 0,8</izquierda>
+        </item>
+    </nodos>
+    <nodos>
+        <item>
+            <fila>1</fila>
+            <columna>0</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 1,0</id>
+            <abajo>Nodo: 2,0</abajo>
+        </item>
+        <item>
+            <fila>1</fila>
+            <columna>1</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 1,1</id>
+            <arriba>Nodo: 0,1</arriba>
+            <abajo>Nodo: 2,1</abajo>
+        </item>
+        <item>
+            <fila>1</fila>
+            <columna>2</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 1,2</id>
+            <derecha>Nodo: 1,3</derecha>
+            <abajo>Nodo: 2,2</abajo>
+        </item>
+        <item>
+            <fila>1</fila>
+            <columna>3</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 1,3</id>
+            <derecha>Nodo: 1,4</derecha>
+            <izquierda>Nodo: 1,2</izquierda>
+        </item>
+        <item>
+            <fila>1</fila>
+            <columna>4</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 1,4</id>
+            <abajo>Nodo: 2,4</abajo>
+            <izquierda>Nodo: 1,3</izquierda>
+        </item>
+        <item>
+            <fila>1</fila>
+            <columna>5</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 1,5</id>
+            <arriba>Nodo: 0,5</arriba>
+        </item>
+        <item>
+            <fila>1</fila>
+            <columna>6</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 1,6</id>
+            <derecha>Nodo: 1,7</derecha>
+            <abajo>Nodo: 2,6</abajo>
+        </item>
+        <item>
+            <fila>1</fila>
+            <columna>7</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 1,7</id>
+            <arriba>Nodo: 0,7</arriba>
+            <izquierda>Nodo: 1,6</izquierda>
+        </item>
+        <item>
+            <fila>1</fila>
+            <columna>8</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 1,8</id>
+            <abajo>Nodo: 2,8</abajo>
+        </item>
+        <item>
+            <fila>1</fila>
+            <columna>9</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 1,9</id>
+            <arriba>Nodo: 0,9</arriba>
+            <abajo>Nodo: 2,9</abajo>
+        </item>
+    </nodos>
+    <nodos>
+        <item>
+            <fila>2</fila>
+            <columna>0</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 2,0</id>
+            <arriba>Nodo: 1,0</arriba>
+            <abajo>Nodo: 3,0</abajo>
+        </item>
+        <item>
+            <fila>2</fila>
+            <columna>1</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 2,1</id>
+            <arriba>Nodo: 1,1</arriba>
+            <derecha>Nodo: 2,2</derecha>
+        </item>
+        <item>
+            <fila>2</fila>
+            <columna>2</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 2,2</id>
+            <arriba>Nodo: 1,2</arriba>
+            <izquierda>Nodo: 2,1</izquierda>
+        </item>
+        <item>
+            <fila>2</fila>
+            <columna>3</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 2,3</id>
+            <derecha>Nodo: 2,4</derecha>
+            <abajo>Nodo: 3,3</abajo>
+        </item>
+        <item>
+            <fila>2</fila>
+            <columna>4</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 2,4</id>
+            <arriba>Nodo: 1,4</arriba>
+            <izquierda>Nodo: 2,3</izquierda>
+        </item>
+        <item>
+            <fila>2</fila>
+            <columna>5</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 2,5</id>
+            <derecha>Nodo: 2,6</derecha>
+            <abajo>Nodo: 3,5</abajo>
+        </item>
+        <item>
+            <fila>2</fila>
+            <columna>6</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 2,6</id>
+            <arriba>Nodo: 1,6</arriba>
+            <izquierda>Nodo: 2,5</izquierda>
+        </item>
+        <item>
+            <fila>2</fila>
+            <columna>7</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 2,7</id>
+            <derecha>Nodo: 2,8</derecha>
+            <abajo>Nodo: 3,7</abajo>
+        </item>
+        <item>
+            <fila>2</fila>
+            <columna>8</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 2,8</id>
+            <arriba>Nodo: 1,8</arriba>
+            <derecha>Nodo: 2,9</derecha>
+            <izquierda>Nodo: 2,7</izquierda>
+        </item>
+        <item>
+            <fila>2</fila>
+            <columna>9</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 2,9</id>
+            <arriba>Nodo: 1,9</arriba>
+            <izquierda>Nodo: 2,8</izquierda>
+        </item>
+    </nodos>
+    <nodos>
+        <item>
+            <fila>3</fila>
+            <columna>0</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 3,0</id>
+            <arriba>Nodo: 2,0</arriba>
+            <derecha>Nodo: 3,1</derecha>
+            <abajo>Nodo: 4,0</abajo>
+        </item>
+        <item>
+            <fila>3</fila>
+            <columna>1</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 3,1</id>
+            <derecha>Nodo: 3,2</derecha>
+            <abajo>Nodo: 4,1</abajo>
+            <izquierda>Nodo: 3,0</izquierda>
+        </item>
+        <item>
+            <fila>3</fila>
+            <columna>2</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 3,2</id>
+            <izquierda>Nodo: 3,1</izquierda>
+        </item>
+        <item>
+            <fila>3</fila>
+            <columna>3</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 3,3</id>
+            <arriba>Nodo: 2,3</arriba>
+            <derecha>Nodo: 3,4</derecha>
+        </item>
+        <item>
+            <fila>3</fila>
+            <columna>4</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 3,4</id>
+            <abajo>Nodo: 4,4</abajo>
+            <izquierda>Nodo: 3,3</izquierda>
+        </item>
+        <item>
+            <fila>3</fila>
+            <columna>5</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 3,5</id>
+            <arriba>Nodo: 2,5</arriba>
+            <abajo>Nodo: 4,5</abajo>
+        </item>
+        <item>
+            <fila>3</fila>
+            <columna>6</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 3,6</id>
+            <derecha>Nodo: 3,7</derecha>
+            <abajo>Nodo: 4,6</abajo>
+        </item>
+        <item>
+            <fila>3</fila>
+            <columna>7</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 3,7</id>
+            <arriba>Nodo: 2,7</arriba>
+            <izquierda>Nodo: 3,6</izquierda>
+        </item>
+        <item>
+            <fila>3</fila>
+            <columna>8</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 3,8</id>
+            <derecha>Nodo: 3,9</derecha>
+            <abajo>Nodo: 4,8</abajo>
+        </item>
+        <item>
+            <fila>3</fila>
+            <columna>9</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 3,9</id>
+            <abajo>Nodo: 4,9</abajo>
+            <izquierda>Nodo: 3,8</izquierda>
+        </item>
+    </nodos>
+    <nodos>
+        <item>
+            <fila>4</fila>
+            <columna>0</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 4,0</id>
+            <arriba>Nodo: 3,0</arriba>
+            <abajo>Nodo: 5,0</abajo>
+        </item>
+        <item>
+            <fila>4</fila>
+            <columna>1</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 4,1</id>
+            <arriba>Nodo: 3,1</arriba>
+            <derecha>Nodo: 4,2</derecha>
+        </item>
+        <item>
+            <fila>4</fila>
+            <columna>2</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 4,2</id>
+            <derecha>Nodo: 4,3</derecha>
+            <izquierda>Nodo: 4,1</izquierda>
+        </item>
+        <item>
+            <fila>4</fila>
+            <columna>3</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 4,3</id>
+            <abajo>Nodo: 5,3</abajo>
+            <izquierda>Nodo: 4,2</izquierda>
+        </item>
+        <item>
+            <fila>4</fila>
+            <columna>4</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 4,4</id>
+            <arriba>Nodo: 3,4</arriba>
+            <abajo>Nodo: 5,4</abajo>
+        </item>
+        <item>
+            <fila>4</fila>
+            <columna>5</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 4,5</id>
+            <arriba>Nodo: 3,5</arriba>
+            <abajo>Nodo: 5,5</abajo>
+        </item>
+        <item>
+            <fila>4</fila>
+            <columna>6</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 4,6</id>
+            <arriba>Nodo: 3,6</arriba>
+            <abajo>Nodo: 5,6</abajo>
+        </item>
+        <item>
+            <fila>4</fila>
+            <columna>7</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 4,7</id>
+            <derecha>Nodo: 4,8</derecha>
+        </item>
+        <item>
+            <fila>4</fila>
+            <columna>8</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 4,8</id>
+            <arriba>Nodo: 3,8</arriba>
+            <izquierda>Nodo: 4,7</izquierda>
+        </item>
+        <item>
+            <fila>4</fila>
+            <columna>9</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 4,9</id>
+            <arriba>Nodo: 3,9</arriba>
+            <abajo>Nodo: 5,9</abajo>
+        </item>
+    </nodos>
+    <nodos>
+        <item>
+            <fila>5</fila>
+            <columna>0</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 5,0</id>
+            <arriba>Nodo: 4,0</arriba>
+            <derecha>Nodo: 5,1</derecha>
+        </item>
+        <item>
+            <fila>5</fila>
+            <columna>1</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 5,1</id>
+            <derecha>Nodo: 5,2</derecha>
+            <izquierda>Nodo: 5,0</izquierda>
+        </item>
+        <item>
+            <fila>5</fila>
+            <columna>2</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 5,2</id>
+            <abajo>Nodo: 6,2</abajo>
+            <izquierda>Nodo: 5,1</izquierda>
+        </item>
+        <item>
+            <fila>5</fila>
+            <columna>3</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 5,3</id>
+            <arriba>Nodo: 4,3</arriba>
+            <derecha>Nodo: 5,4</derecha>
+        </item>
+        <item>
+            <fila>5</fila>
+            <columna>4</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 5,4</id>
+            <arriba>Nodo: 4,4</arriba>
+            <izquierda>Nodo: 5,3</izquierda>
+        </item>
+        <item>
+            <fila>5</fila>
+            <columna>5</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 5,5</id>
+            <arriba>Nodo: 4,5</arriba>
+            <abajo>Nodo: 6,5</abajo>
+        </item>
+        <item>
+            <fila>5</fila>
+            <columna>6</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 5,6</id>
+            <arriba>Nodo: 4,6</arriba>
+            <derecha>Nodo: 5,7</derecha>
+        </item>
+        <item>
+            <fila>5</fila>
+            <columna>7</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 5,7</id>
+            <abajo>Nodo: 6,7</abajo>
+            <izquierda>Nodo: 5,6</izquierda>
+        </item>
+        <item>
+            <fila>5</fila>
+            <columna>8</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 5,8</id>
+            <derecha>Nodo: 5,9</derecha>
+            <abajo>Nodo: 6,8</abajo>
+        </item>
+        <item>
+            <fila>5</fila>
+            <columna>9</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 5,9</id>
+            <arriba>Nodo: 4,9</arriba>
+            <abajo>Nodo: 6,9</abajo>
+            <izquierda>Nodo: 5,8</izquierda>
+        </item>
+    </nodos>
+    <nodos>
+        <item>
+            <fila>6</fila>
+            <columna>0</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 6,0</id>
+            <derecha>Nodo: 6,1</derecha>
+            <abajo>Nodo: 7,0</abajo>
+        </item>
+        <item>
+            <fila>6</fila>
+            <columna>1</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 6,1</id>
+            <abajo>Nodo: 7,1</abajo>
+            <izquierda>Nodo: 6,0</izquierda>
+        </item>
+        <item>
+            <fila>6</fila>
+            <columna>2</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 6,2</id>
+            <arriba>Nodo: 5,2</arriba>
+            <derecha>Nodo: 6,3</derecha>
+        </item>
+        <item>
+            <fila>6</fila>
+            <columna>3</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 6,3</id>
+            <abajo>Nodo: 7,3</abajo>
+            <izquierda>Nodo: 6,2</izquierda>
+        </item>
+        <item>
+            <fila>6</fila>
+            <columna>4</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 6,4</id>
+            <derecha>Nodo: 6,5</derecha>
+            <abajo>Nodo: 7,4</abajo>
+        </item>
+        <item>
+            <fila>6</fila>
+            <columna>5</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 6,5</id>
+            <arriba>Nodo: 5,5</arriba>
+            <izquierda>Nodo: 6,4</izquierda>
+        </item>
+        <item>
+            <fila>6</fila>
+            <columna>6</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 6,6</id>
+            <derecha>Nodo: 6,7</derecha>
+            <abajo>Nodo: 7,6</abajo>
+        </item>
+        <item>
+            <fila>6</fila>
+            <columna>7</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 6,7</id>
+            <arriba>Nodo: 5,7</arriba>
+            <izquierda>Nodo: 6,6</izquierda>
+        </item>
+        <item>
+            <fila>6</fila>
+            <columna>8</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 6,8</id>
+            <arriba>Nodo: 5,8</arriba>
+            <abajo>Nodo: 7,8</abajo>
+        </item>
+        <item>
+            <fila>6</fila>
+            <columna>9</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 6,9</id>
+            <arriba>Nodo: 5,9</arriba>
+            <abajo>Nodo: 7,9</abajo>
+        </item>
+    </nodos>
+    <nodos>
+        <item>
+            <fila>7</fila>
+            <columna>0</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 7,0</id>
+            <arriba>Nodo: 6,0</arriba>
+            <abajo>Nodo: 8,0</abajo>
+        </item>
+        <item>
+            <fila>7</fila>
+            <columna>1</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 7,1</id>
+            <arriba>Nodo: 6,1</arriba>
+            <derecha>Nodo: 7,2</derecha>
+        </item>
+        <item>
+            <fila>7</fila>
+            <columna>2</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 7,2</id>
+            <izquierda>Nodo: 7,1</izquierda>
+        </item>
+        <item>
+            <fila>7</fila>
+            <columna>3</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 7,3</id>
+            <arriba>Nodo: 6,3</arriba>
+            <abajo>Nodo: 8,3</abajo>
+        </item>
+        <item>
+            <fila>7</fila>
+            <columna>4</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 7,4</id>
+            <arriba>Nodo: 6,4</arriba>
+            <abajo>Nodo: 8,4</abajo>
+        </item>
+        <item>
+            <fila>7</fila>
+            <columna>5</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 7,5</id>
+            <derecha>Nodo: 7,6</derecha>
+            <abajo>Nodo: 8,5</abajo>
+        </item>
+        <item>
+            <fila>7</fila>
+            <columna>6</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 7,6</id>
+            <arriba>Nodo: 6,6</arriba>
+            <izquierda>Nodo: 7,5</izquierda>
+        </item>
+        <item>
+            <fila>7</fila>
+            <columna>7</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 7,7</id>
+            <derecha>Nodo: 7,8</derecha>
+            <abajo>Nodo: 8,7</abajo>
+        </item>
+        <item>
+            <fila>7</fila>
+            <columna>8</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 7,8</id>
+            <arriba>Nodo: 6,8</arriba>
+            <izquierda>Nodo: 7,7</izquierda>
+        </item>
+        <item>
+            <fila>7</fila>
+            <columna>9</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 7,9</id>
+            <arriba>Nodo: 6,9</arriba>
+            <abajo>Nodo: 8,9</abajo>
+        </item>
+    </nodos>
+    <nodos>
+        <item>
+            <fila>8</fila>
+            <columna>0</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 8,0</id>
+            <arriba>Nodo: 7,0</arriba>
+            <derecha>Nodo: 8,1</derecha>
+            <abajo>Nodo: 9,0</abajo>
+        </item>
+        <item>
+            <fila>8</fila>
+            <columna>1</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 8,1</id>
+            <derecha>Nodo: 8,2</derecha>
+            <izquierda>Nodo: 8,0</izquierda>
+        </item>
+        <item>
+            <fila>8</fila>
+            <columna>2</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 8,2</id>
+            <derecha>Nodo: 8,3</derecha>
+            <izquierda>Nodo: 8,1</izquierda>
+        </item>
+        <item>
+            <fila>8</fila>
+            <columna>3</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 8,3</id>
+            <arriba>Nodo: 7,3</arriba>
+            <izquierda>Nodo: 8,2</izquierda>
+        </item>
+        <item>
+            <fila>8</fila>
+            <columna>4</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 8,4</id>
+            <arriba>Nodo: 7,4</arriba>
+            <abajo>Nodo: 9,4</abajo>
+        </item>
+        <item>
+            <fila>8</fila>
+            <columna>5</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 8,5</id>
+            <arriba>Nodo: 7,5</arriba>
+            <derecha>Nodo: 8,6</derecha>
+        </item>
+        <item>
+            <fila>8</fila>
+            <columna>6</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 8,6</id>
+            <abajo>Nodo: 9,6</abajo>
+            <izquierda>Nodo: 8,5</izquierda>
+        </item>
+        <item>
+            <fila>8</fila>
+            <columna>7</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 8,7</id>
+            <arriba>Nodo: 7,7</arriba>
+            <abajo>Nodo: 9,7</abajo>
+        </item>
+        <item>
+            <fila>8</fila>
+            <columna>8</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 8,8</id>
+            <derecha>Nodo: 8,9</derecha>
+            <abajo>Nodo: 9,8</abajo>
+        </item>
+        <item>
+            <fila>8</fila>
+            <columna>9</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 8,9</id>
+            <arriba>Nodo: 7,9</arriba>
+            <izquierda>Nodo: 8,8</izquierda>
+        </item>
+    </nodos>
+    <nodos>
+        <item>
+            <fila>9</fila>
+            <columna>0</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 9,0</id>
+            <arriba>Nodo: 8,0</arriba>
+            <derecha>Nodo: 9,1</derecha>
+        </item>
+        <item>
+            <fila>9</fila>
+            <columna>1</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 9,1</id>
+            <derecha>Nodo: 9,2</derecha>
+            <izquierda>Nodo: 9,0</izquierda>
+        </item>
+        <item>
+            <fila>9</fila>
+            <columna>2</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 9,2</id>
+            <derecha>Nodo: 9,3</derecha>
+            <izquierda>Nodo: 9,1</izquierda>
+        </item>
+        <item>
+            <fila>9</fila>
+            <columna>3</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 9,3</id>
+            <derecha>Nodo: 9,4</derecha>
+            <izquierda>Nodo: 9,2</izquierda>
+        </item>
+        <item>
+            <fila>9</fila>
+            <columna>4</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 9,4</id>
+            <arriba>Nodo: 8,4</arriba>
+            <izquierda>Nodo: 9,3</izquierda>
+        </item>
+        <item>
+            <fila>9</fila>
+            <columna>5</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 9,5</id>
+            <derecha>Nodo: 9,6</derecha>
+        </item>
+        <item>
+            <fila>9</fila>
+            <columna>6</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 9,6</id>
+            <arriba>Nodo: 8,6</arriba>
+            <derecha>Nodo: 9,7</derecha>
+            <izquierda>Nodo: 9,5</izquierda>
+        </item>
+        <item>
+            <fila>9</fila>
+            <columna>7</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 9,7</id>
+            <arriba>Nodo: 8,7</arriba>
+            <izquierda>Nodo: 9,6</izquierda>
+        </item>
+        <item>
+            <fila>9</fila>
+            <columna>8</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 9,8</id>
+            <arriba>Nodo: 8,8</arriba>
+            <derecha>Nodo: 9,9</derecha>
+        </item>
+        <item>
+            <fila>9</fila>
+            <columna>9</columna>
+            <visitado>false</visitado>
+            <caminoIncorrecto>false</caminoIncorrecto>
+            <id>Nodo: 9,9</id>
+            <izquierda>Nodo: 9,8</izquierda>
+        </item>
+    </nodos>
+    <nodoEntrada>
+        <fila>4</fila>
+        <columna>1</columna>
+        <visitado>false</visitado>
+        <caminoIncorrecto>false</caminoIncorrecto>
+        <id>Nodo: 4,1</id>
+        <arriba>Nodo: 3,1</arriba>
+        <derecha>Nodo: 4,2</derecha>
+    </nodoEntrada>
+    <nodoSalida>
+        <fila>8</fila>
+        <columna>1</columna>
+        <visitado>false</visitado>
+        <caminoIncorrecto>false</caminoIncorrecto>
+        <id>Nodo: 8,1</id>
+        <derecha>Nodo: 8,2</derecha>
+        <izquierda>Nodo: 8,0</izquierda>
+    </nodoSalida>
+    <MODO_BLOQUE>0</MODO_BLOQUE>
+    <MODO_GUIA>-1</MODO_GUIA>
+    <MODO_LINEA>1</MODO_LINEA>
+    <fechaDeCreacion>2023-11-18</fechaDeCreacion>
+    <nombre>lab1</nombre>
+</laberinto>
