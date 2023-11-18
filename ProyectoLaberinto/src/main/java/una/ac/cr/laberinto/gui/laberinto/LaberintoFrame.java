@@ -31,7 +31,7 @@ public class LaberintoFrame extends JFrame {
 		setLocationRelativeTo(null); // Centra la ventana en la pantalla
 		setVisible(true);
 
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 
 	private void ajustarComponentes(Container c) {
