@@ -1,10 +1,8 @@
 package una.ac.cr.laberinto.gui.main;
 
 import una.ac.cr.laberinto.algoritmos.AlgoritmoGeneracion;
-import una.ac.cr.laberinto.gui.archivo.FileChooserFrame;
 import una.ac.cr.laberinto.gui.laberinto.LaberintoFrame;
 import una.ac.cr.laberinto.modelo.Laberinto;
-import una.ac.cr.laberinto.utils.JAXBUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,14 +10,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.ArrayList;
 
 public class MainFrame extends JFrame {
 
 	private MainFrameController controller;
+
+	// lista para la información de los laberintos abiertos
+	private List<LaberintoInfo> laberintosAbiertos = new ArrayList<>();
+
+	// Modelo de la tabla
+	private LaberintoTableModel laberintoTableModel = new LaberintoTableModel();
 
 	public MainFrame(MainFrameController controller) {
 		this.controller = controller;
@@ -38,7 +40,12 @@ public class MainFrame extends JFrame {
 
 		JPanel buttonPanel = createButtonPanel(nuevoLaberintoButton, recuperarLaberintoButton);
 
-		mainPanel.add(buttonPanel, BorderLayout.NORTH);
+		// Crear la tabla y agregarla al panel principal
+		JTable laberintoTable = new JTable(laberintoTableModel);
+		JScrollPane tableScrollPane = new JScrollPane(laberintoTable);
+		mainPanel.add(tableScrollPane, BorderLayout.CENTER);	// Agregar la tabla al panel principal
+
+		mainPanel.add(buttonPanel, BorderLayout.NORTH);	// Agregar el panel de botones al panel principal
 
 		add(mainPanel);
 	}
@@ -107,6 +114,7 @@ public class MainFrame extends JFrame {
 
 				AlgoritmoGeneracion algoritmoGeneracion = new AlgoritmoGeneracion(filas, columnas);
 				Laberinto laberinto = algoritmoGeneracion.getLaberinto();
+				laberinto.setNombre(nombreField.getText().trim());
 
 				if ( this.controller.guardar(nombreField.getText().trim(), laberinto) ) {
 					JOptionPane.showMessageDialog(MainFrame.this, "Laberinto creado y guardado con éxito.", "Información", JOptionPane.INFORMATION_MESSAGE);
@@ -117,6 +125,15 @@ public class MainFrame extends JFrame {
 				// Crea y muestra la nueva ventana del laberinto
 				LaberintoFrame laberintoFrame = new LaberintoFrame(laberinto);
 				laberintoFrame.setVisible(true);
+
+
+				// Agregar información del laberinto a la lista
+				LaberintoInfo laberintoInfo = new LaberintoInfo(laberinto);
+				System.out.println(laberinto.getNombre());
+				laberintosAbiertos.add(laberintoInfo);
+				// Actualizar el modelo de la tabla
+				laberintoTableModel.setLaberintos(laberintosAbiertos);
+				laberintoTableModel.fireTableDataChanged();
 			} catch (NumberFormatException ex) {
 				JOptionPane.showMessageDialog(MainFrame.this, "Por favor, introduce números válidos.", "Error", JOptionPane.ERROR_MESSAGE);
 			}
@@ -128,6 +145,14 @@ public class MainFrame extends JFrame {
 		if (laberinto != null) {
 			LaberintoFrame laberintoFrame = new LaberintoFrame(laberinto);
 			laberintoFrame.setVisible(true);
+
+			System.out.println(laberinto.getNombre());
+			// Agregar información del laberinto a la lista
+			LaberintoInfo laberintoInfo = new LaberintoInfo(laberinto);
+			laberintosAbiertos.add(laberintoInfo);
+			// Actualizar el modelo de la tabla
+			laberintoTableModel.setLaberintos(laberintosAbiertos);
+			laberintoTableModel.fireTableDataChanged();
 		} else {
 			JOptionPane.showMessageDialog(this, "No se recuperó ningún laberinto", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 		}
