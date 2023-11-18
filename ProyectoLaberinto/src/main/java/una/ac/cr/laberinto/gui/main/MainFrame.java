@@ -30,6 +30,7 @@ public class MainFrame extends JFrame {
 
 	private void initializeUI() {
 		setTitle("Laberinto App");
+		setIconImage(new ImageIcon("src/main/resources/images/main_view_icon.jpeg").getImage());
 		setSize(400, 400);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
