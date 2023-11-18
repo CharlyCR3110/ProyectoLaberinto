@@ -1,5 +1,7 @@
 package una.ac.cr.laberinto.gui.laberinto;
-import una.ac.cr.laberinto.gui.archivo.FileChooserFrame;
+
+import una.ac.cr.laberinto.gui.main.LaberintoInfo;
+import una.ac.cr.laberinto.gui.main.MainFrameController;
 import una.ac.cr.laberinto.modelo.Laberinto;
 import una.ac.cr.laberinto.utils.JAXBUtil;
 import una.ac.cr.laberinto.utils.PathChecker;
@@ -7,6 +9,8 @@ import una.ac.cr.laberinto.utils.PathChecker;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class LaberintoFrame extends JFrame {
 	private LaberintoPanel laberintoPanel;
@@ -14,9 +18,11 @@ public class LaberintoFrame extends JFrame {
 	private JComboBox<String> comboModo;
 	private JSlider controlZoom;
 	private Laberinto laberinto;
+	MainFrameController mainFrameController;
 
-	public LaberintoFrame(Laberinto laberinto) {
+	public LaberintoFrame(Laberinto laberinto, MainFrameController mainFrameController) {
 		this.laberinto = laberinto;
+		this.mainFrameController = mainFrameController;
 		inicializar(laberinto.getNombre());
 	}
 
@@ -31,6 +37,13 @@ public class LaberintoFrame extends JFrame {
 
 		setLocationRelativeTo(null); // Centra la ventana en la pantalla
 		setVisible(true);
+
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				handleLaberintoFrameClosing();
+			}
+		});
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
@@ -101,5 +114,11 @@ public class LaberintoFrame extends JFrame {
 			return false;
 		}
 		return true;
+	}
+
+
+	private void handleLaberintoFrameClosing() {
+		LaberintoInfo laberintoInfo = new LaberintoInfo(laberinto);
+		mainFrameController.handleLaberintoFrameClose(laberintoInfo);
 	}
 }
