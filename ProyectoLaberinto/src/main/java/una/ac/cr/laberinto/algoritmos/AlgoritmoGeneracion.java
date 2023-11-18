@@ -98,6 +98,10 @@ public class AlgoritmoGeneracion {
 		laberinto.setNodos(nodos);
 		laberinto.setNodoEntrada(nodoAleatorio());
 		laberinto.setNodoSalida(nodoAleatorio());
+		while (laberinto.getNodoEntrada() == laberinto.getNodoSalida()) {
+			laberinto.setNodoSalida(nodoAleatorio());
+		}
+
 		return laberinto;
 	}
 
