@@ -45,8 +45,18 @@ public class MainFrame extends JFrame {
 		// Crear la tabla y agregarla al panel principal
 		JTable laberintoTable = new JTable(laberintoTableModel);
 		JScrollPane tableScrollPane = new JScrollPane(laberintoTable);
-		mainPanel.add(tableScrollPane, BorderLayout.CENTER);	// Agregar la tabla al panel principal
 
+		laberintoTable.getSelectionModel().addListSelectionListener(e -> {
+			int selectedRow = laberintoTable.getSelectedRow();
+			if (selectedRow >= 0) {
+				LaberintoInfo selectedLaberinto = laberintosAbiertos.get(selectedRow);
+				if (selectedLaberinto != null) {
+					selectedLaberinto.getLaberintoFrame().toFront();
+				}
+			}
+		});
+
+		mainPanel.add(tableScrollPane, BorderLayout.CENTER);	// Agregar la tabla al panel principal
 		mainPanel.add(buttonPanel, BorderLayout.NORTH);	// Agregar el panel de botones al panel principal
 
 		add(mainPanel);
@@ -131,7 +141,9 @@ public class MainFrame extends JFrame {
 
 				// Agregar información del laberinto a la lista
 				LaberintoInfo laberintoInfo = new LaberintoInfo(laberinto);
-				System.out.println(laberinto.getNombre());
+				// Setea la referencia a la ventana del laberinto en LaberintoInfo
+				laberintoInfo.setLaberintoFrame(laberintoFrame);
+
 				laberintosAbiertos.add(laberintoInfo);
 				// Actualizar el modelo de la tabla
 				laberintoTableModel.setLaberintos(laberintosAbiertos);
@@ -151,6 +163,9 @@ public class MainFrame extends JFrame {
 			System.out.println(laberinto.getNombre());
 			// Agregar información del laberinto a la lista
 			LaberintoInfo laberintoInfo = new LaberintoInfo(laberinto);
+			// Setea la referencia a la ventana del laberinto en LaberintoInfo
+			laberintoInfo.setLaberintoFrame(laberintoFrame);
+
 			laberintosAbiertos.add(laberintoInfo);
 			// Actualizar el modelo de la tabla
 			laberintoTableModel.setLaberintos(laberintosAbiertos);
