@@ -59,53 +59,20 @@ public class LaberintoFrame extends JFrame {
 			}
 		});
 
-		d.add(new JButton("Recuperar") {
-			{
-				addActionListener((ActionEvent e) -> {
-					recuperar();
-				});
-			}
-		});
-
-
-
-
 		c.add(BorderLayout.PAGE_START, d);
 		c.add(BorderLayout.CENTER,
 				new JScrollPane(
 						laberintoPanel = new LaberintoPanel(laberinto),
 						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS
-				));
+				)
+		);
 
 
 //		comboModo.addActionListener((ActionEvent e) -> {
 //			ajustarModo();
 //		});
-//		controlZoom.addChangeListener((ChangeEvent e) -> {
-//			panelPrincipal.setEscala(controlZoom.getValue() / (100.0 * 10));
-//		});
 	}
-
-	private void recuperar() {
-		FileChooserFrame fileChooserFrame = new FileChooserFrame();
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				String ruta = fileChooserFrame.showFileChooser();
-				try {
-					if (ruta != null) {
-						Laberinto laberinto = JAXBUtil.cargarLaberinto(ruta);
-						laberintoPanel.getController().setLaberinto(laberinto);
-					}
-				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Error al cargar el laberinto");
-				}
-			}
-		});
-	}
-
-
 	private void guardar() {
 		laberintoPanel.getController().reiniciar();
 		laberintoPanel.repaint();
