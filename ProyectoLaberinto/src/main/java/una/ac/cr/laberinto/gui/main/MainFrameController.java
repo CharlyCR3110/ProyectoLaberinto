@@ -29,6 +29,13 @@ public class MainFrameController {
 		return null;
 	}
 
+	public boolean guardar(String nombre, Laberinto laberinto) {
+		if (JAXBUtil.guardarLaberinto(laberinto, nombre) == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	public MainFrame getMainFrame() {
 		return mainFrame;
