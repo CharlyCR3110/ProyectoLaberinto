@@ -73,14 +73,20 @@ public class MainFrame extends JFrame {
 	}
 
 	private void handleNuevoLaberintoButtonClick() {
-		JPanel dimensionPanel = new JPanel(new GridLayout(2, 2));
+		JPanel dimensionPanel = new JPanel(new GridLayout(6, 3));
+		JLabel nombreLabel = new JLabel("Nombre:");
 		JLabel filasLabel = new JLabel("Filas:");
 		JLabel columnasLabel = new JLabel("Columnas:");
+		JTextField nombreField = new JTextField();
 		JTextField filasField = new JTextField();
 		JTextField columnasField = new JTextField();
 
+		dimensionPanel.add(nombreLabel);
+		dimensionPanel.add(nombreField);
+
 		dimensionPanel.add(filasLabel);
 		dimensionPanel.add(filasField);
+
 		dimensionPanel.add(columnasLabel);
 		dimensionPanel.add(columnasField);
 
@@ -102,6 +108,12 @@ public class MainFrame extends JFrame {
 				AlgoritmoGeneracion algoritmoGeneracion = new AlgoritmoGeneracion(filas, columnas);
 				Laberinto laberinto = algoritmoGeneracion.getLaberinto();
 
+				if ( this.controller.guardar(nombreField.getText().trim(), laberinto) ) {
+					JOptionPane.showMessageDialog(MainFrame.this, "Laberinto creado y guardado con éxito.", "Información", JOptionPane.INFORMATION_MESSAGE);
+				} else {
+					JOptionPane.showMessageDialog(MainFrame.this, "Error al crear y guardar el laberinto.", "Error", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 				// Crea y muestra la nueva ventana del laberinto
 				LaberintoFrame laberintoFrame = new LaberintoFrame(laberinto);
 				laberintoFrame.setVisible(true);
