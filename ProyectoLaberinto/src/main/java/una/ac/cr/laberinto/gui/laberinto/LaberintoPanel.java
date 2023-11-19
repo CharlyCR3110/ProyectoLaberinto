@@ -258,4 +258,9 @@ public class LaberintoPanel extends JPanel {
 	public void setZoomer(boolean b) {
 		zoomer = b;
 	}
+
+	public void setMetodoDibujo(int modo) {
+		controller.setMetodoDibujo(modo);
+		repaint();
+	}
 }
