@@ -49,16 +49,19 @@ public class LaberintoPanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		int modo = controller.getMetodoDibujo();
 		if (modo == 0) {
-			metodoDeDibujoParedes(g);
+			metodoDeDibujoParedes(g, modo);
 		} else if (modo == 1) {
+			metodoDeDibujoParedes(g, modo);
+		} else if (modo == 2) {
 			metodoDeDibujoCamino(g);
-		} else {
+		}
+		else {
 			System.out.println("Modo de dibujo no válido");
 		}
 	}
 
 
-	public void metodoDeDibujoParedes(Graphics g) {
+	public void metodoDeDibujoParedes(Graphics g, int opcionDibujo) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
 
@@ -101,14 +104,31 @@ public class LaberintoPanel extends JPanel {
 
 
 				// Verificar si el nodo es la posición del jugador y pintarlo de un color diferente
-				if (nodo.esVisitado()) {
-					g2d.setColor(new Color(28, 83, 119)); // Color del jugador
-					g2d.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
-				}
+				if (nodo.esVisitado() || nodo.esCaminoIncorrecto()) {
+					x = j * cellWidth + cellWidth / 2;
+					y = i * cellHeight + cellHeight / 2;
 
-				if (nodo.esCaminoIncorrecto()) {
-					g2d.setColor(new Color(106, 106, 106)); // Color del jugador
-					g2d.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
+					// Dibujar camino con líneas o círculos según la opción
+					if (opcionDibujo == 0) {
+						g2d.setColor(nodo.esVisitado() ? new Color(28, 83, 119) : new Color(106, 106, 106));
+						g2d.setStroke(new BasicStroke(2));
+						// Verificar y dibujar conexiones
+						if (nodo.getArriba() != null) {
+							g2d.drawLine(x, y, x, y - cellHeight);
+						}
+						if (nodo.getDerecha() != null) {
+							g2d.drawLine(x, y, x + cellWidth, y);
+						}
+						if (nodo.getAbajo() != null) {
+							g2d.drawLine(x, y, x, y + cellHeight);
+						}
+						if (nodo.getIzquierda() != null) {
+							g2d.drawLine(x, y, x - cellWidth, y);
+						}
+					} else {
+						g2d.setColor(nodo.esVisitado() ? new Color(28, 83, 119) : new Color(106, 106, 106));
+						g2d.fillOval(x - cellWidth / 4, y - cellHeight / 4, cellWidth / 2, cellHeight / 2);
+					}
 				}
 
 				if (model.getJugador().equals(laberinto.getNodoSalida())) {
