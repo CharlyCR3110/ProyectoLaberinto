@@ -47,6 +47,18 @@ public class LaberintoPanel extends JPanel {
 
 	@Override
 	protected void paintComponent(Graphics g) {
+		int modo = controller.getMetodoDibujo();
+		if (modo == 0) {
+			metodoDeDibujoParedes(g);
+		} else if (modo == 1) {
+			metodoDeDibujoCamino(g);
+		} else {
+			System.out.println("Modo de dibujo no válido");
+		}
+	}
+
+
+	public void metodoDeDibujoParedes(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
 
@@ -115,6 +127,57 @@ public class LaberintoPanel extends JPanel {
 			}
 		}
 	}
+
+	// dibuja el camino
+	public void metodoDeDibujoCamino(Graphics g) {
+		super.paintComponent(g);
+		Graphics2D g2d = (Graphics2D) g;
+
+		cellWidth = getWidth() / laberinto.getColumnas();
+		cellHeight = getHeight() / laberinto.getFilas();
+
+		if(zoomer){
+			g2d.scale(controller.getZoomFactor(), controller.getZoomFactor());
+			ajustarVistaZoom();
+			zoomer = false;
+		}
+
+		for (int i = 0; i < laberinto.getFilas(); i++) {
+			for (int j = 0; j < laberinto.getColumnas(); j++) {
+				Nodo nodo = laberinto.getNodo(i, j);
+				int x = j * cellWidth;
+				int y = i * cellHeight;
+
+				// Dibujar celdas
+				g2d.setColor(Color.WHITE);
+				g2d.fillRect((int) (x), (int) (y), (int) (cellWidth), (int) (cellHeight));
+
+
+				x = j * cellWidth + cellWidth / 2;
+				y = i * cellHeight + cellHeight / 2;
+
+				// Dibujar camino
+				g2d.setColor(new Color(0, 0, 255)); // Color azul para el camino
+				g2d.setStroke(new BasicStroke(2)); // Grosor de la línea = 2 pixel
+
+				// Verificar y dibujar conexiones
+				// Verificar y dibujar conexiones
+				if (nodo.getArriba() != null) {
+					g2d.drawLine(x, y, x, y - cellHeight);
+				}
+				if (nodo.getDerecha() != null) {
+					g2d.drawLine(x, y, x + cellWidth, y);
+				}
+				if (nodo.getAbajo() != null) {
+					g2d.drawLine(x, y, x, y + cellHeight);
+				}
+				if (nodo.getIzquierda() != null) {
+					g2d.drawLine(x, y, x - cellWidth, y);
+				}
+			}
+		}
+	}
+
 
 	private void ajustarVistaZoom() {	// para agregar los scrollbars
 //		 Ajustar el tamaño de la vista en función del factor de zoom
