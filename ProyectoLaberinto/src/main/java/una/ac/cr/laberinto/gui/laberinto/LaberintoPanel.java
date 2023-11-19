@@ -174,6 +174,40 @@ public class LaberintoPanel extends JPanel {
 				if (nodo.getIzquierda() != null) {
 					g2d.drawLine(x, y, x - cellWidth, y);
 				}
+
+				// Dibujar círculo en el centro de la celda
+				g2d.setColor(new Color(86, 60, 34)); // Color rojo para el círculo
+				int radio = 10; // Tamaño del radio del círculo
+				g2d.fillOval(x - radio / 2, y - radio / 2, radio, radio);
+
+				// Verificar si el nodo es la posición del jugador y pintarlo de un color diferente
+				if (nodo.esVisitado()) {
+					g2d.setColor(new Color(28, 83, 119)); // Color del jugador
+					g2d.fillOval(x - radio / 2, y - radio / 2, radio, radio);
+				}
+
+				if (nodo.esCaminoIncorrecto()) {
+					g2d.setColor(new Color(106, 106, 106)); // Color del jugador
+					g2d.fillOval(x - radio / 2, y - radio / 2, radio, radio);
+
+				}
+
+				if (model.getJugador().equals(laberinto.getNodoSalida())) {
+					g2d.setColor(new Color(184, 15, 10));
+					g2d.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+					g2d.drawString("¡Ganaste!", 100, 100);
+				}
+
+				// Verificar si el nodo es la entrada o la salida y pintarlo de un color diferente
+				if (i == laberinto.getNodoEntrada().getFila() && j == laberinto.getNodoEntrada().getColumna()) {
+					g2d.setColor(new Color(89, 198, 17)); // Color de la entrada
+					g2d.fillOval(x - radio / 2, y - radio / 2, radio, radio);
+				} else if (i == laberinto.getNodoSalida().getFila() && j == laberinto.getNodoSalida().getColumna()) {
+					g2d.setColor(new Color(184, 15, 10)); // Color de la salida}
+					g2d.fillOval(x - radio / 2, y - radio / 2, radio, radio);
+
+				}
+
 			}
 		}
 	}
