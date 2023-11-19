@@ -20,7 +20,7 @@ public class Laberinto {
 	private Nodo nodoEntrada;
 	private Nodo nodoSalida;
 
-	public static String[] DESCRIPCION_MODO = {"Paredes", "Caminos"};
+	public static String[] DESCRIPCION_MODO = {"Original", "Paredes y Circulos","Caminos"};
 	int MODO_BLOQUE = 0;
 	int MODO_GUIA = -1;
 	int MODO_LINEA = 1;
