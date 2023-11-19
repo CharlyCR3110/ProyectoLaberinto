@@ -21,7 +21,6 @@ public class AlgoritmoSolucion {
 	private boolean resolverLaberintoRecursivo(Nodo nodoActual) {
 		// Si llegamos a la salida, hemos encontrado una solución
 		if (nodoActual.equals(laberinto.getNodoSalida())) {
-			pasos.add(nodoActual);
 			return true;
 		}
 
@@ -30,19 +29,15 @@ public class AlgoritmoSolucion {
 
 		// Intentar moverse en todas las direcciones posibles
 		if (nodoActual.getArriba() != null && !nodoActual.getArriba().esVisitado() && resolverLaberintoRecursivo(nodoActual.getArriba())) {
-			pasos.add(nodoActual);
 			return true;
 		}
 		if (nodoActual.getAbajo() != null && !nodoActual.getAbajo().esVisitado() && resolverLaberintoRecursivo(nodoActual.getAbajo())) {
-			pasos.add(nodoActual);
 			return true;
 		}
 		if (nodoActual.getIzquierda() != null && !nodoActual.getIzquierda().esVisitado() && resolverLaberintoRecursivo(nodoActual.getIzquierda())) {
-			pasos.add(nodoActual);
 			return true;
 		}
 		if (nodoActual.getDerecha() != null && !nodoActual.getDerecha().esVisitado() && resolverLaberintoRecursivo(nodoActual.getDerecha())) {
-			pasos.add(nodoActual);
 			return true;
 		}
 
@@ -50,15 +45,5 @@ public class AlgoritmoSolucion {
 		nodoActual.marcarNoVisitado();
 		nodoActual.marcarCaminoIncorrecto();
 		return false;
-	}
-
-
-	public List<Nodo> getPasos() {
-		// se devuelve la lista de pasos al revés para que se muestre en orden
-		List<Nodo> pasosAlReves = new ArrayList<>();
-		for (int i = pasos.size() - 1; i >= 0; i--) {
-			pasosAlReves.add(pasos.get(i));
-		}
-		return pasosAlReves;
 	}
 }
