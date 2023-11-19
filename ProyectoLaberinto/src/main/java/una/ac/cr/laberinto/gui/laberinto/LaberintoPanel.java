@@ -116,19 +116,20 @@ public class LaberintoPanel extends JPanel {
 					g2d.setFont(new Font("TimesRoman", Font.PLAIN, 50));
 					g2d.drawString("¡Ganaste!", 100, 100);
 				}
+
 				// Verificar si el nodo es la entrada o la salida y pintarlo de un color diferente
 				if (i == laberinto.getNodoEntrada().getFila() && j == laberinto.getNodoEntrada().getColumna()) {
 					g2d.setColor(new Color(89, 198, 17)); // Color de la entrada
 					g2d.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
 				} else if (i == laberinto.getNodoSalida().getFila() && j == laberinto.getNodoSalida().getColumna()) {
-					g2d.setColor(new Color(184, 15, 10)); // Color de la salida
+					g2d.setColor(new Color(0, 255, 255)); // Color de la salida
 					g2d.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
 				}
+
 			}
 		}
 	}
 
-	// dibuja el camino
 	public void metodoDeDibujoCamino(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
@@ -152,15 +153,13 @@ public class LaberintoPanel extends JPanel {
 				g2d.setColor(Color.WHITE);
 				g2d.fillRect((int) (x), (int) (y), (int) (cellWidth), (int) (cellHeight));
 
-
 				x = j * cellWidth + cellWidth / 2;
 				y = i * cellHeight + cellHeight / 2;
 
 				// Dibujar camino
-				g2d.setColor(new Color(0, 0, 255)); // Color azul para el camino
+				g2d.setColor(new Color(128, 128, 128)); // Azul más brillante para el camino
 				g2d.setStroke(new BasicStroke(2)); // Grosor de la línea = 2 pixel
 
-				// Verificar y dibujar conexiones
 				// Verificar y dibujar conexiones
 				if (nodo.getArriba() != null) {
 					g2d.drawLine(x, y, x, y - cellHeight);
@@ -175,43 +174,46 @@ public class LaberintoPanel extends JPanel {
 					g2d.drawLine(x, y, x - cellWidth, y);
 				}
 
-				// Dibujar círculo en el centro de la celda
-				g2d.setColor(new Color(86, 60, 34)); // Color rojo para el círculo
 				int radio = 10; // Tamaño del radio del círculo
+				int bordeAncho = 2;
+
+				g2d.setColor(new Color(0, 0, 0)); // Color del borde (negro en este caso)
+				g2d.setStroke(new BasicStroke(bordeAncho)); // Grosor del borde
+				g2d.drawOval(x - radio / 2 - bordeAncho / 2, y - radio / 2 - bordeAncho / 2, radio + bordeAncho, radio + bordeAncho);
+
+
+				// Dibujar círculo en el centro de la celda
+				g2d.setColor(new Color(255, 69, 0)); // Naranja para el círculo
 				g2d.fillOval(x - radio / 2, y - radio / 2, radio, radio);
 
 				// Verificar si el nodo es la posición del jugador y pintarlo de un color diferente
 				if (nodo.esVisitado()) {
-					g2d.setColor(new Color(28, 83, 119)); // Color del jugador
+					g2d.setColor(new Color(0, 0, 255)); // Naranja más claro para el jugador
 					g2d.fillOval(x - radio / 2, y - radio / 2, radio, radio);
 				}
 
 				if (nodo.esCaminoIncorrecto()) {
-					g2d.setColor(new Color(106, 106, 106)); // Color del jugador
+					g2d.setColor(new Color(128, 128, 128)); // Gris para el camino incorrecto
 					g2d.fillOval(x - radio / 2, y - radio / 2, radio, radio);
-
 				}
 
 				if (model.getJugador().equals(laberinto.getNodoSalida())) {
-					g2d.setColor(new Color(184, 15, 10));
+					g2d.setColor(new Color(255, 0, 0)); // Rojo para el mensaje de "Ganaste"
 					g2d.setFont(new Font("TimesRoman", Font.PLAIN, 50));
 					g2d.drawString("¡Ganaste!", 100, 100);
 				}
 
 				// Verificar si el nodo es la entrada o la salida y pintarlo de un color diferente
 				if (i == laberinto.getNodoEntrada().getFila() && j == laberinto.getNodoEntrada().getColumna()) {
-					g2d.setColor(new Color(89, 198, 17)); // Color de la entrada
+					g2d.setColor(new Color(89, 198, 17)); // Verde para la entrada
 					g2d.fillOval(x - radio / 2, y - radio / 2, radio, radio);
 				} else if (i == laberinto.getNodoSalida().getFila() && j == laberinto.getNodoSalida().getColumna()) {
-					g2d.setColor(new Color(184, 15, 10)); // Color de la salida}
+					g2d.setColor(new Color(0, 255, 255)); // Color de la salida
 					g2d.fillOval(x - radio / 2, y - radio / 2, radio, radio);
-
 				}
-
 			}
 		}
 	}
-
 
 	private void ajustarVistaZoom() {	// para agregar los scrollbars
 //		 Ajustar el tamaño de la vista en función del factor de zoom
