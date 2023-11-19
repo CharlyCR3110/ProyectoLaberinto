@@ -11,6 +11,7 @@ public class LaberintoModel {
 	private AlgoritmoSolucion algoritmoSolucion;
 	private Nodo jugador; // Representa la posición del jugador en el laberinto
 	private double zoomFactor = 1.0;
+	private int metodoDibujo = 1;	// 0 = paredes, 1 = camino
 	public LaberintoModel(Laberinto laberinto, LaberintoPanel panel) {
 		this.laberinto = laberinto;
 		this.algoritmoSolucion = new AlgoritmoSolucion(laberinto);
@@ -70,5 +71,13 @@ public class LaberintoModel {
 	public void setZoomFactor(double factor) {
 		// se pone un límite al zoom out para que no se vea tan mal
 		this.zoomFactor = Math.max(factor, 0.25);
+	}
+
+	public int getMetodoDibujo() {
+		return metodoDibujo;
+	}
+
+	public void setMetodoDibujo(int metodoDibujo) {
+		this.metodoDibujo = metodoDibujo;
 	}
 }
