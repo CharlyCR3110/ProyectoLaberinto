@@ -100,7 +100,6 @@ public class Laberinto {
 			for (int j = 0; j < columnas ; j++) {
 				nodos[i][j].setDefault();
 			}
-			System.out.println();
 		}
 	}
 
