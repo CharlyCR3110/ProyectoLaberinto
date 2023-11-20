@@ -104,9 +104,9 @@ public class LaberintoPanel extends JPanel {
 
 
 				// Verificar si el nodo es la posición del jugador y pintarlo de un color diferente
+				x = j * cellWidth + cellWidth / 2;
+				y = i * cellHeight + cellHeight / 2;
 				if (nodo.esVisitado() || nodo.esCaminoIncorrecto()) {
-					x = j * cellWidth + cellWidth / 2;
-					y = i * cellHeight + cellHeight / 2;
 
 					// Dibujar camino con líneas o círculos según la opción
 					if (opcionDibujo == 0) {
@@ -140,10 +140,10 @@ public class LaberintoPanel extends JPanel {
 				// Verificar si el nodo es la entrada o la salida y pintarlo de un color diferente
 				if (i == laberinto.getNodoEntrada().getFila() && j == laberinto.getNodoEntrada().getColumna()) {
 					g2d.setColor(new Color(89, 198, 17)); // Color de la entrada
-					g2d.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
+					g2d.fillOval(x - cellWidth / 4, y - cellHeight / 4, cellWidth / 2, cellHeight / 2);
 				} else if (i == laberinto.getNodoSalida().getFila() && j == laberinto.getNodoSalida().getColumna()) {
 					g2d.setColor(new Color(0, 255, 255)); // Color de la salida
-					g2d.fillOval(x + cellWidth / 4, y + cellHeight / 4, cellWidth / 2, cellHeight / 2);
+					g2d.fillOval(x - cellWidth / 4, y - cellHeight / 4, cellWidth / 2, cellHeight / 2);
 				}
 
 			}
