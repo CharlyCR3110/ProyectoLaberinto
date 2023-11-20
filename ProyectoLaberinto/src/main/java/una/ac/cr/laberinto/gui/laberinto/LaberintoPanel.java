@@ -47,17 +47,23 @@ public class LaberintoPanel extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		int modo = controller.getMetodoDibujo();
-		if (modo == 0) {
-			metodoDeDibujoParedes(g, modo);
-		} else if (modo == 1) {
-			metodoDeDibujoParedes(g, modo);
-		} else if (modo == 2) {
-			metodoDeDibujoCamino(g);
-		}
-		else {
-			// Si no se presiona una tecla válida, no se hace nada
+
+		switch (modo) {
+			case 0:
+				// no se agrega el break para que se dibuje el camino
+				// Fallthrough
+			case 1:
+				metodoDeDibujoParedes(g, modo);
+				break;
+			case 2:
+				metodoDeDibujoCamino(g);
+				break;
+			default:
+				// Si no se presiona una tecla válida, no se hace nada
+				break;
 		}
 	}
+
 
 
 	public void metodoDeDibujoParedes(Graphics g, int opcionDibujo) {
