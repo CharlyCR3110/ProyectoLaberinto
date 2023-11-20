@@ -164,7 +164,6 @@ public class MainFrame extends JFrame {
 			LaberintoFrame laberintoFrame = new LaberintoFrame(laberinto, this.controller);
 			laberintoFrame.setVisible(true);
 
-			System.out.println(laberinto.getNombre());
 			// Agregar información del laberinto a la lista
 			LaberintoInfo laberintoInfo = new LaberintoInfo(laberinto);
 			// Setea la referencia a la ventana del laberinto en LaberintoInfo

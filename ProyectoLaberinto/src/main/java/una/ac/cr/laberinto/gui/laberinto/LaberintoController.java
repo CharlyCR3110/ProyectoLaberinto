@@ -39,18 +39,16 @@ public class LaberintoController {
 		} else if (keyEvent.getKeyCode() == KeyEvent.VK_RIGHT) {
 			model.moverJugador("DERECHA");
 		} else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
-			System.out.println("Resolviendo laberinto");
 			if (model.getJugador() != model.getLaberinto().getNodoEntrada()) {
-				System.out.println("No se puede resolver el laberinto si el jugador no está en la entrada");
 				return;
 			}
 			model.getAlgoritmoSolucion().resolverLaberinto();
 			model.setJugador(model.getLaberinto().getNodoSalida());
 		} else if (keyEvent.getKeyCode() == 82) { // Reinicio del laberinto
-			System.out.println("Reiniciando laberinto");
 			reiniciar();
 		} else {
-			System.out.println("Tecla no válida");
+			// Si no se presiona una tecla válida, no se hace nada
+			return;
 		}
 	}
 

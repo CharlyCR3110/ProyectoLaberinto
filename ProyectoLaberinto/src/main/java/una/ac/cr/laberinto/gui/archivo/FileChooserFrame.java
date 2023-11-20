@@ -58,7 +58,6 @@ public class FileChooserFrame extends JFrame {
 			return selectedFolder.getPath();
 		}
 
-		System.out.println("No se seleccionó ningún archivo");
 		return null;
 	}
 

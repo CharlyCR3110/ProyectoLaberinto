@@ -56,7 +56,7 @@ public class LaberintoModel {
 				jugador.marcarVisitado();
 			}
 		} else {
-			System.out.println("Dirección no válida");
+			// Si no se presiona una tecla válida, no se hace nada
 		}
 	}
 

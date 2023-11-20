@@ -17,13 +17,11 @@ public class PathChecker {
 		if (archivos != null) {
 			for (File archivo : archivos) {
 				if (archivo.isFile() && archivo.getName().startsWith(nombreArchivo)) {
-					System.out.println("Ya existe un archivo con el nombre especificado.");
 					return false;
 				}
 			}
 		}
 
-		System.out.println("El archivo es válido.");
 		return true;
 	}
 

@@ -39,8 +39,7 @@ public class LaberintoPanel extends JPanel {
 		this.addMouseWheelListener(controller.getMouseWheelListener());
 	}
 	@Override
-	public void repaint() {	// casi que innecesario
-		System.out.println("Repintando");
+	public void repaint() {
 		// Vuelve a dibujar el panel
 		super.repaint();
 	}
@@ -56,7 +55,7 @@ public class LaberintoPanel extends JPanel {
 			metodoDeDibujoCamino(g);
 		}
 		else {
-			System.out.println("Modo de dibujo no válido");
+			// Si no se presiona una tecla válida, no se hace nada
 		}
 	}
 
