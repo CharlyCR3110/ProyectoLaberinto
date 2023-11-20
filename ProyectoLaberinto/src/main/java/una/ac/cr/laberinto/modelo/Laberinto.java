@@ -21,9 +21,6 @@ public class Laberinto {
 	private Nodo nodoSalida;
 
 	public static String[] DESCRIPCION_MODO = {"Original", "Paredes y Circulos","Caminos"};
-	int MODO_BLOQUE = 0;
-	int MODO_GUIA = -1;
-	int MODO_LINEA = 1;
 	@XmlJavaTypeAdapter(LocalDateAdapter.class)
 	private LocalDate fechaDeCreacion;
 	@XmlElement(name = "nombre")
