@@ -20,11 +20,7 @@ public class Laberinto {
 	private Nodo nodoEntrada;
 	private Nodo nodoSalida;
 
-	public static String[] DESCRIPCION_MODO = {"Guías", "Bloque", "Línea"};
-	// int[] MODOS = {MODO_GUIA, MODO_BLOQUE, MODO_LINEA};
-	int MODO_BLOQUE = 0;
-	int MODO_GUIA = -1;
-	int MODO_LINEA = 1;
+	public static String[] DESCRIPCION_MODO = {"Original", "Paredes y Circulos","Caminos"};
 	@XmlJavaTypeAdapter(LocalDateAdapter.class)
 	private LocalDate fechaDeCreacion;
 	@XmlElement(name = "nombre")
@@ -101,7 +97,6 @@ public class Laberinto {
 			for (int j = 0; j < columnas ; j++) {
 				nodos[i][j].setDefault();
 			}
-			System.out.println();
 		}
 	}
 

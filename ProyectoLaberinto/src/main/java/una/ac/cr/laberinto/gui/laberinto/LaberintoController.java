@@ -95,4 +95,12 @@ public class LaberintoController {
 		}
 		view.setZoomer(true);
 	}
+
+	public void setMetodoDibujo(int metodoDibujo) {
+		model.setMetodoDibujo(metodoDibujo);
+	}
+
+	public int getMetodoDibujo() {
+		return model.getMetodoDibujo();
+	}
 }

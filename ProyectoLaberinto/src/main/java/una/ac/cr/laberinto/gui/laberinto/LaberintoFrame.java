@@ -73,9 +73,15 @@ public class LaberintoFrame extends JFrame {
 		);
 
 
-//		comboModo.addActionListener((ActionEvent e) -> {
-//			ajustarModo();
-//		});
+		comboModo.addActionListener((ActionEvent e) -> {
+			ajustarModo();
+		});
+	}
+
+	private void ajustarModo() {
+		int modo = comboModo.getSelectedIndex();
+		laberintoPanel.setMetodoDibujo(modo);
+		laberintoPanel.repaint();
 	}
 
 	private void handleLaberintoFrameClosing() {
