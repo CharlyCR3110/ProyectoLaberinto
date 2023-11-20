@@ -11,7 +11,7 @@ public class LaberintoModel {
 	private AlgoritmoSolucion algoritmoSolucion;
 	private Nodo jugador; // Representa la posición del jugador en el laberinto
 	private double zoomFactor = 1.0;
-	private int metodoDibujo = 0;	// 0 = paredes, 1 = camino
+	private int metodoDibujo = 0;	// 0 = paredes con el camino representado por linea, 1 = paredes con el camino representado por circulos, 2 = solo camino
 	public LaberintoModel(Laberinto laberinto, LaberintoPanel panel) {
 		this.laberinto = laberinto;
 		this.algoritmoSolucion = new AlgoritmoSolucion(laberinto);
