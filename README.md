@@ -1,4 +1,4 @@
-**Data Structures Project - Maze Generator and Solver**
+# Data Structures Project - Maze Generator and Solver
 
 This project is part of the EIF207 - Data Structures course at the Universidad Nacional de Costa Rica, developed during the second cycle of the year 2023 under the guidance of Professor M.Sc. Georges Alfaro S.
 
